@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: var(--font);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* ── Layout ─────────────────────────────── */
+    .auth-wrap {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ── Form Side ──────────────────────────── */
+    .auth-form-col {
+      flex: 0 0 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-10) var(--sp-12);
+      background: var(--clr-bg-2);
+      border-right: 1px solid var(--clr-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-form-col::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .auth-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      margin-bottom: var(--sp-8);
+      animation: fadeSlideIn 0.4s ease both;
+    }
+
+    .auth-form-body {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .auth-heading {
+      font-size: var(--text-3xl);
+      font-weight: var(--fw-bold);
+      color: var(--clr-text);
+      line-height: var(--lh-tight);
+      margin-bottom: var(--sp-2);
+      animation: fadeSlideIn 0.4s 0.05s ease both;
+    }
+
+    .auth-sub {
+      font-size: var(--text-sm);
+      color: var(--clr-text-3);
+      margin-bottom: var(--sp-8);
+      animation: fadeSlideIn 0.4s 0.1s ease both;
+    }
+    .auth-sub a {
+      color: var(--clr-primary);
+      font-weight: var(--fw-medium);
+      text-decoration: none;
+    }
+    .auth-sub a:hover { text-decoration: underline; }
+
+    /* ── Fields ─────────────────────────────── */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-5);
+      animation: fadeSlideIn 0.4s ease both;
+    }
+
+    .field-label {
+      font-size: var(--text-sm);
+      font-weight: var(--fw-medium);
+      color: var(--clr-text-2);
+    }
+
+    .field-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .field-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--clr-text-4);
+      display: flex;
+      pointer-events: none;
+      transition: color var(--ease-fast);
+    }
+
+    .field-input {
+      width: 100%;
+      height: 46px;
+      padding: 0 14px 0 42px;
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      font-size: var(--text-sm);
+      color: var(--clr-text);
+      font-family: var(--font);
+      outline: none;
+      transition: border-color var(--ease-fast), box-shadow var(--ease-fast), background var(--ease-fast);
+    }
+
+    .field-input::placeholder { color: var(--clr-text-4); }
+
+    .field-input:focus {
+      border-color: var(--ring);
+      background: var(--input);
+      box-shadow: 0 0 0 3px rgba(245,158,11,0.16);
+    }
+
+    .field-wrap:focus-within .field-icon { color: var(--primary); }
+
+    .field-input-no-icon { padding-left: 14px; }
+
+    .field-toggle {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--clr-text-4);
+      display: flex;
+      padding: 4px;
+      border-radius: var(--r-sm);
+      transition: color var(--ease-fast);
+    }
+    .field-toggle:hover { color: var(--clr-text-2); }
+
+    /* ── Row (remember + forgot) ─────────────── */
+    .auth-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--sp-6);
+      animation: fadeSlideIn 0.4s 0.2s ease both;
+    }
+
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--text-sm);
+      color: var(--clr-text-3);
+      cursor: pointer;
+      user-select: none;
+    }
+    .check-label input { accent-color: var(--clr-primary); }
+
+    .auth-forgot {
+      font-size: var(--text-sm);
+      color: var(--clr-primary);
+      font-weight: var(--fw-medium);
+      text-decoration: none;
+    }
+    .auth-forgot:hover { text-decoration: underline; }
+
+    /* ── Submit ─────────────────────────────── */
+    .auth-submit {
+      width: 100%;
+      height: 46px;
+      background: var(--clr-primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      font-size: var(--text-sm);
+      font-weight: var(--fw-semibold);
+      font-family: var(--font);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      transition: background var(--ease-fast), box-shadow var(--ease-fast), transform var(--ease-fast);
+      margin-bottom: var(--sp-6);
+      animation: fadeSlideIn 0.4s 0.25s ease both;
+    }
+    .auth-submit:hover {
+      background: var(--clr-primary-dark);
+      box-shadow: 0 0 0 4px rgba(245,158,11,0.2);
+      transform: translateY(-1px);
+    }
+    .auth-submit:active { transform: translateY(0); }
+
+    /* ── Divider ────────────────────────────── */
+    .auth-or {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-5);
+      animation: fadeSlideIn 0.4s 0.3s ease both;
+    }
+    .auth-or::before,
+    .auth-or::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--clr-border);
+    }
+    .auth-or span {
+      font-size: var(--text-xs);
+      color: var(--clr-text-4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    /* ── Social buttons ─────────────────────── */
+    .auth-social-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      animation: fadeSlideIn 0.4s 0.35s ease both;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-3);
+      height: 44px;
+      background: var(--clr-surface-1);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      font-size: var(--text-sm);
+      font-weight: var(--fw-medium);
+      color: var(--clr-text-2);
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background var(--ease-fast), border-color var(--ease-fast), color var(--ease-fast);
+      text-decoration: none;
+    }
+    .social-btn:hover {
+      background: var(--clr-surface-2);
+      border-color: var(--clr-border-2);
+      color: var(--clr-text);
+    }
+
+    /* ── Error banner ───────────────────────── */
+    .auth-error {
+      display: none;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--clr-danger-light);
+      border: 1px solid rgba(239,68,68,0.25);
+      border-radius: var(--r-md);
+      font-size: var(--text-sm);
+      color: var(--clr-danger);
+      margin-bottom: var(--sp-5);
+    }
+    .auth-error.show { display: flex; animation: scaleIn 0.2s ease both; }
+
+    /* ── Visual Side ────────────────────────── */
+    .auth-visual-col {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--background);
+    }
+
+    .auth-visual-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 40%, rgba(245,158,11,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 70% 70%, rgba(6,22,34,0.9) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 20%, rgba(245,158,11,0.06) 0%, transparent 60%);
+    }
+
+    /* Grid lines overlay */
+    .auth-visual-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .auth-visual-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--sp-12);
+      max-width: 480px;
+    }
+
+    .auth-visual-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--accent);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: var(--r-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--sp-6);
+      animation: pulse-glow 3s ease infinite;
+    }
+
+    .auth-visual-title {
+      font-size: var(--text-3xl);
+      font-weight: var(--fw-bold);
+      color: #fff;
+      line-height: var(--lh-snug);
+      margin-bottom: var(--sp-4);
+      letter-spacing: -0.5px;
+    }
+
+    .auth-visual-desc {
+      font-size: var(--text-base);
+      color: rgba(255,255,255,0.5);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--sp-10);
+    }
+
+    /* Stats row */
+    .auth-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+
+    .auth-stat {
+      flex: 1;
+      padding: var(--sp-5) var(--sp-4);
+      text-align: center;
+    }
+    .auth-stat + .auth-stat {
+      border-left: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .auth-stat__value {
+      font-size: var(--text-xl);
+      font-weight: var(--fw-bold);
+      color: #fff;
+      line-height: 1;
+      margin-bottom: var(--sp-1);
+    }
+
+    .auth-stat__label {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Responsive ─────────────────────────── */
+    @media (max-width: 900px) {
+      .auth-visual-col { display: none; }
+      .auth-form-col {
+        flex: 1;
+        border-right: none;
+        padding: var(--sp-8) var(--sp-6);
+      }
+      .auth-form-body {
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-wrap">
+
+  <!-- ── Form Side ──────────────────────────────── -->
+  <div class="auth-form-col">
+    <a href="../../index.html" class="auth-brand" aria-label="Shaghlni home">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--auth">
+    </a>
+
+    <div class="auth-form-body">
+      <h1 class="auth-heading">Welcome back</h1>
+      <p class="auth-sub">New here? <a href="register.html">Create an account</a></p>
+
+      <div id="auth-error" class="auth-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span id="auth-error-text">Invalid email or password.</span>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="field-group" style="animation-delay:0.1s">
+          <label class="field-label" for="login-email">Email address</label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            </span>
+            <input type="email" name="email" id="login-email" class="field-input" placeholder="you@example.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field-group" style="animation-delay:0.15s">
+          <label class="field-label" for="login-password">Password</label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" name="password" id="login-password" class="field-input" placeholder="Enter your password" autocomplete="current-password">
+            <button type="button" class="field-toggle" id="toggle-password" aria-label="Show/hide password">
+              <svg id="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-row">
+          <label class="check-label">
+            <input type="checkbox" name="remember">
+            Remember me
+          </label>
+          <a href="forgot-password.html" class="auth-forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit">
+          Sign In
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+
+      <div class="auth-or"><span>or continue with</span></div>
+
+      <div class="auth-social-list">
+        <a href="/jobpilot/api/auth/google" class="social-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66 2.84-.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Continue with Google
+        </a>
+        <a href="/jobpilot/api/auth/linkedin" class="social-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#0077B5"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3 3h3v9H5v-9zm5 0h2.9v1.2c.5-.8 1.5-1.4 2.6-1.4C17.2 9.8 18 11.2 18 13.2V19h-3v-5c0-.9-.3-1.5-1.1-1.5s-1.4.6-1.4 1.5V19H10v-9z" fill="#fff"/>
+          </svg>
+          Continue with LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Visual Side ──────────────────────────────── -->
+  <div class="auth-visual-col">
+    <div class="auth-visual-bg"></div>
+    <div class="auth-visual-grid"></div>
+    <div class="auth-visual-content">
+      <div class="auth-visual-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(245,158,11,0.9)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+      </div>
+      <h2 class="auth-visual-title">Your next great job<br>is one login away</h2>
+      <p class="auth-visual-desc">Join thousands of professionals finding their dream roles through Shaghlni's intelligent matching platform.</p>
+      <div class="auth-stats">
+        <div class="auth-stat">
+          <div class="auth-stat__value">175K+</div>
+          <div class="auth-stat__label">Live Jobs</div>
+        </div>
+        <div class="auth-stat">
+          <div class="auth-stat__value">97K+</div>
+          <div class="auth-stat__label">Companies</div>
+        </div>
+        <div class="auth-stat">
+          <div class="auth-stat__value">7.5K</div>
+          <div class="auth-stat__label">New Today</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  // Already logged in? Go straight to dashboard
+  Session.redirectIfLoggedIn();
+
+  // Show OAuth error if redirected back from failed OAuth flow
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const oauthErr = params.get('oauth_error');
+    if (oauthErr) {
+      const banner = document.getElementById('auth-error');
+      document.getElementById('auth-error-text').textContent = oauthErr;
+      banner.classList.add('show');
+    }
+  })();
+
+  // Password visibility toggle
+  const pwInput = document.getElementById('login-password');
+  const eyeIcon = document.getElementById('eye-icon');
+  document.getElementById('toggle-password').addEventListener('click', function() {
+    const isText = pwInput.type === 'text';
+    pwInput.type = isText ? 'password' : 'text';
+    eyeIcon.innerHTML = isText
+      ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
+      : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  });
+</script>
+</body>
+</html>

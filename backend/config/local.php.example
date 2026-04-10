@@ -1,0 +1,17 @@
+<?php
+// Copy to local.php and fill in your values. local.php is gitignored.
+return [
+    'db' => [
+        'host'    => 'localhost',
+        'port'    => '3306',
+        'name'    => 'jobs_platform',
+        'user'    => 'YOUR_DB_USER',
+        'pass'    => 'YOUR_DB_PASSWORD',
+        'charset' => 'utf8mb4',
+    ],
+    'cors_origins' => ['https://yourfrontenddomain.com'],
+    'debug'        => false,
+    'ml_mode'      => 'cached',
+    'python_bin'   => 'python3',
+];
+// Required env vars: JOBPILOT_DEBUG=0  RECO_CRON_TOKEN=secret

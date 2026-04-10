@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applied Jobs — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar-dashboard">
+  <div class="navbar-dashboard__top">
+    <div class="container navbar-dashboard__top-inner">
+      <nav class="navbar-dashboard__top-links">
+        <a href="../../index.html" data-i18n="nav.home">Home</a>
+        <a href="../jobs/browse-jobs.html" data-i18n="nav.find_job">Find Job</a>
+        <a href="../employers/browse-employers.html" data-i18n="nav.find_employers">Employers</a>
+        <a href="../candidates/browse-candidates.html" data-i18n="nav.candidates">Candidates</a>
+        <a href="../static/blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="../static/about.html" data-i18n="nav.about">About</a>
+      </nav>
+      <div class="navbar-dashboard__top-right"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-dashboard__bottom">
+    <div class="container navbar-dashboard__bottom-inner">
+      <a href="../../index.html" class="navbar-dashboard__brand">
+        <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+        
+      </a>
+      <div class="navbar-dashboard__search">
+        <div class="navbar-dashboard__search-input">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Job title, keyword, company">
+        </div>
+        <button class="btn btn-primary" onclick="window.location.href='../jobs/browse-jobs.html'">Find Job</button>
+      </div>
+      <div class="navbar-dashboard__actions">
+        <button class="navbar-dashboard__icon-btn" aria-label="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
+        <div class="dropdown" id="user-dropdown">
+          <button class="navbar-dashboard__avatar dropdown__trigger" id="nav-user-avatar" aria-haspopup="true">JD</button>
+          <div class="dropdown__menu dropdown__menu--right" role="menu">
+            <a class="dropdown__item" href="settings-personal.html">Settings</a>
+            <div class="dropdown__divider"></div>
+            <a class="dropdown__item" href="../auth/login.html" data-logout>Sign Out</a>
+          </div>
+        </div>
+        <button class="navbar-dashboard__hamburger" id="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DASHBOARD LAYOUT -->
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar sidebar-candidate">
+    <div class="sidebar__header">
+      <div class="sidebar__avatar" id="sidebar-avatar">JD</div>
+      <div>
+        <p class="sidebar__name" id="sidebar-name">John Doe</p>
+        <p class="sidebar__role">Candidate</p>
+      </div>
+    </div>
+    <nav class="sidebar__nav">
+      <a href="dashboard.html" class="sidebar__link" data-i18n="dash.nav.overview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Overview
+      </a>
+      <a href="applied-jobs.html" class="sidebar__link active" data-i18n="dash.nav.applied">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Applied Jobs
+      </a>
+      <a href="favorite-jobs.html" class="sidebar__link" data-i18n="dash.nav.favorites">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Favorite Jobs
+      </a>
+      <a href="job-alerts.html" class="sidebar__link" data-i18n="dash.nav.alerts">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        Job Alerts
+      </a>
+      <a href="settings-personal.html" class="sidebar__link" data-i18n="dash.nav.settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </a>
+    </nav>
+    <button class="sidebar__logout" data-logout data-i18n="nav.sign_out">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Log-out
+    </button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dashboard-main">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-6);flex-wrap:wrap;gap:var(--sp-3)">
+      <div>
+        <h1 style="font-size:var(--text-2xl);font-weight:700;color:var(--clr-text)">Applied Jobs</h1>
+        <p style="color:var(--clr-text-3);margin-top:4px" id="applied-count">— applications</p>
+      </div>
+      <a href="../jobs/browse-jobs.html" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Find More Jobs
+      </a>
+    </div>
+
+    <!-- Filter tabs -->
+    <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-5)">
+      <button class="btn btn-primary btn-sm app-filter-btn" data-filter="">All</button>
+      <button class="btn btn-ghost btn-sm app-filter-btn" data-filter="pending">Pending</button>
+      <button class="btn btn-ghost btn-sm app-filter-btn" data-filter="active">Active</button>
+      <button class="btn btn-ghost btn-sm app-filter-btn" data-filter="rejected">Rejected</button>
+    </div>
+
+    <!-- Applications table -->
+    <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);overflow:hidden">
+      <table class="data-table" style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr>
+            <th style="padding:var(--sp-4) var(--sp-5);text-align:left;font-size:13px;font-weight:600;color:var(--clr-text-3);background:var(--clr-bg);border-bottom:1px solid var(--clr-border)">Job</th>
+            <th style="padding:var(--sp-4) var(--sp-5);text-align:left;font-size:13px;font-weight:600;color:var(--clr-text-3);background:var(--clr-bg);border-bottom:1px solid var(--clr-border)">Company</th>
+            <th style="padding:var(--sp-4) var(--sp-5);text-align:left;font-size:13px;font-weight:600;color:var(--clr-text-3);background:var(--clr-bg);border-bottom:1px solid var(--clr-border)">Date Applied</th>
+            <th style="padding:var(--sp-4) var(--sp-5);text-align:left;font-size:13px;font-weight:600;color:var(--clr-text-3);background:var(--clr-bg);border-bottom:1px solid var(--clr-border)">Status</th>
+            <th style="padding:var(--sp-4) var(--sp-5);text-align:left;font-size:13px;font-weight:600;color:var(--clr-text-3);background:var(--clr-bg);border-bottom:1px solid var(--clr-border)">Action</th>
+          </tr>
+        </thead>
+        <tbody id="applications-tbody"></tbody>
+      </table>
+      <div id="empty-state-row" style="display:none;padding:var(--sp-12);text-align:center">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5" style="margin:0 auto var(--sp-3);display:block"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <h3 style="font-size:15px;font-weight:600;color:var(--clr-text);margin-bottom:var(--sp-2)">No applications found</h3>
+        <p style="color:var(--clr-text-3);font-size:14px">Try a different filter or <a href="../jobs/browse-jobs.html" style="color:var(--clr-primary)">browse new jobs</a>.</p>
+      </div>
+    </div>
+
+    <div id="pagination-container" style="display:flex;justify-content:center;margin-top:var(--sp-6)"></div>
+
+  </main>
+</div>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/auth-guard.js"></script>
+<script src="../../js/components.js"></script>
+<script>
+(async () => {
+
+  // Auth guard
+  const user = await Session.requireLogin('candidate');
+  if (user) {
+    const initials = user.name ? user.name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase() : 'U';
+    document.getElementById('nav-user-avatar').textContent = initials;
+    document.getElementById('sidebar-avatar').textContent = initials;
+    document.getElementById('sidebar-name').textContent = user.name || 'Candidate';
+  }
+
+  const STATUS_CONFIG = {
+    active:      { label: 'Active',      bg: '#E6F4EA', color: '#0BA02C' },
+    pending:     { label: 'Pending',     bg: '#FFF7E6', color: '#F59E0B' },
+    rejected:    { label: 'Rejected',    bg: '#FDEDED', color: '#E05151' },
+    reviewing:   { label: 'Reviewing',   bg: 'rgba(245,158,11,0.10)', color: '#d97706' },
+    shortlisted: { label: 'Shortlisted', bg: '#E6F4EA', color: '#0BA02C' },
+    hired:       { label: 'Hired',       bg: '#E6F4EA', color: '#0BA02C' },
+  };
+
+  const PAGE_SIZE = 5;
+  let currentPage = 1;
+  let activeFilter = '';
+  let allApplications = [];
+  let filtered = [];
+
+  function applyFilter(f) {
+    activeFilter = f;
+    filtered = f ? allApplications.filter(a => (a.raw_status || a.status) === f) : [...allApplications];
+    currentPage = 1;
+    renderPage();
+    document.querySelectorAll('.app-filter-btn').forEach(b => {
+      b.className = b.dataset.filter === f ? 'btn btn-primary btn-sm app-filter-btn' : 'btn btn-ghost btn-sm app-filter-btn';
+    });
+  }
+
+  function renderRow(app) {
+    const rawStatus = app.raw_status || app.status || 'pending';
+    const s = STATUS_CONFIG[rawStatus] || STATUS_CONFIG.pending;
+    const logo  = app.logo || (app.company || '?').substring(0, 2).toUpperCase();
+    const color = app.color || '#f59e0b';
+    return `<tr style="border-bottom:1px solid var(--clr-border)">
+      <td style="padding:var(--sp-4) var(--sp-5)">
+        <div style="display:flex;align-items:center;gap:var(--sp-3)">
+          <div style="width:40px;height:40px;border-radius:var(--r-md);background:${color}20;color:${color};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">${logo}</div>
+          <div>
+            <a href="../jobs/single-job.html?id=${app.jobId || app.job_id}" style="font-size:14px;font-weight:600;color:var(--clr-text);text-decoration:none">${app.title || app.job_title || '—'}</a>
+            <p style="font-size:12px;color:var(--clr-text-3);margin-top:2px">${app.location || '—'} · ${app.type || app.job_type || '—'}</p>
+          </div>
+        </div>
+      </td>
+      <td style="padding:var(--sp-4) var(--sp-5);font-size:14px;color:var(--clr-text-2)">${app.company || app.company_name || '—'}</td>
+      <td style="padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3)">${formatDate(app.date || app.created_at)}</td>
+      <td style="padding:var(--sp-4) var(--sp-5)">
+        <span style="font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;background:${s.bg};color:${s.color}">${s.label}</span>
+      </td>
+      <td style="padding:var(--sp-4) var(--sp-5)">
+        <a href="../jobs/single-job.html?id=${app.jobId || app.job_id}" class="btn btn-ghost btn-sm">View Job</a>
+      </td>
+    </tr>`;
+  }
+
+  function renderPage() {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const items = filtered.slice(start, start + PAGE_SIZE);
+    const tbody = document.getElementById('applications-tbody');
+    const empty = document.getElementById('empty-state-row');
+
+    document.getElementById('applied-count').textContent = `${filtered.length} application${filtered.length !== 1 ? 's' : ''}`;
+
+    if (!items.length) {
+      tbody.innerHTML = '';
+      empty.style.display = 'block';
+    } else {
+      empty.style.display = 'none';
+      tbody.innerHTML = items.map(renderRow).join('');
+    }
+
+    renderPagination(
+      document.getElementById('pagination-container'),
+      Math.ceil(filtered.length / PAGE_SIZE),
+      currentPage,
+      p => { currentPage = p; renderPage(); window.scrollTo(0, 0); }
+    );
+  }
+
+  document.querySelectorAll('.app-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+  });
+
+  // Load real applications from API
+  try {
+    const data = await apiFetch('/candidate/applications');
+    allApplications = Array.isArray(data.data) ? data.data : (Array.isArray(data) ? data : []);
+  } catch {
+    allApplications = [];
+    Toast.error('Failed to load applications.');
+  }
+  filtered = [...allApplications];
+  renderPage();
+})();
+</script>
+</body>
+</html>

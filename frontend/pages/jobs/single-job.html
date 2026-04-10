@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- ─── Public Navbar ──────────────────────────────────── -->
+<nav class="navbar-public">
+  <div class="navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <ul class="navbar-public__nav">
+      <li><a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="browse-jobs.html" class="navbar-public__link active" data-i18n="nav.find_job">Find Job</a></li>
+      <li><a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a></li>
+      <li><a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a></li>
+      <li><a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="browse-jobs.html" class="navbar-public__link active" data-i18n="nav.find_job">Find Job</a>
+    <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a>
+    <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Breadcrumb ─────────────────────────────────────── -->
+<div style="background:var(--clr-bg);padding:var(--sp-4) 0;border-bottom:1px solid var(--clr-border)">
+  <div class="container">
+    <nav class="breadcrumb"><a href="../../index.html">Home</a><span class="bc-sep"></span><a href="browse-jobs.html">Find Job</a><span class="bc-sep"></span><span class="bc-current" id="breadcrumb-title">Job Details</span></nav>
+  </div>
+</div>
+
+<!-- ─── Job Detail Layout ──────────────────────────────── -->
+<div class="job-detail-layout">
+
+  <!-- Main Content -->
+  <div>
+    <!-- Job Header Card -->
+    <div class="job-detail__header">
+      <div id="job-logo" style="width:64px;height:64px;border-radius:var(--r-md);background:var(--clr-primary-light);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:var(--clr-primary);flex-shrink:0">?</div>
+      <div class="job-detail__title-wrap">
+        <h1 class="job-detail__title" id="job-title">Loading...</h1>
+        <div class="job-detail__company-row">
+          <span id="job-company">Company</span>
+          <span>•</span>
+          <span id="job-location" style="display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Location</span>
+          <span id="job-badge"></span>
+        </div>
+      </div>
+      <div style="display:flex;gap:var(--sp-3);margin-left:auto">
+        <button class="btn btn-outline-neutral" id="bookmark-btn" aria-label="Save job">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <button class="btn btn-primary btn-lg" data-modal-open="apply-modal">
+          Apply Now →
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs: Description / Requirements / Benefits -->
+    <div class="tabs">
+      <div class="tab-list">
+        <button class="tab-btn active">Job Description</button>
+        <button class="tab-btn">Requirements</button>
+        <button class="tab-btn">Benefits</button>
+      </div>
+      <div class="tab-panel active" id="tab-description">
+        <div id="job-description" style="line-height:1.8;color:var(--clr-text-2)">
+          <div class="skeleton skeleton-text" style="width:90%;margin-bottom:8px"></div>
+          <div class="skeleton skeleton-text" style="width:80%;margin-bottom:8px"></div>
+          <div class="skeleton skeleton-text" style="width:85%;margin-bottom:8px"></div>
+          <div class="skeleton skeleton-text" style="width:70%;margin-bottom:8px"></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-requirements">
+        <ul id="job-requirements" style="list-style:disc;padding-left:var(--sp-5);line-height:2;color:var(--clr-text-2)">
+          <li>Bachelor's degree in Computer Science or related field</li>
+          <li>3+ years of professional experience</li>
+          <li>Strong problem-solving and communication skills</li>
+          <li>Experience with Agile / Scrum methodologies</li>
+          <li>Ability to work in a collaborative team environment</li>
+        </ul>
+      </div>
+      <div class="tab-panel" id="tab-benefits">
+        <div style="display:flex;flex-wrap:wrap;gap:var(--sp-2)" id="job-benefits">
+          <span class="tag" style="background:var(--clr-primary-light);border-color:var(--clr-primary);color:var(--clr-primary)">401k Salary</span>
+          <span class="tag" style="background:var(--clr-teal-light);border-color:var(--clr-teal);color:var(--clr-teal)">Distributed Team</span>
+          <span class="tag">Async</span>
+          <span class="tag">Vision Insurance</span>
+          <span class="tag">Dental Insurance</span>
+          <span class="tag" style="background:var(--clr-danger-light);border-color:var(--clr-danger);color:var(--clr-danger)">Medical Insurance</span>
+          <span class="tag">Unlimited Vacation</span>
+          <span class="tag">4 day workweek</span>
+          <span class="tag">401K Matching</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Jobs -->
+    <div style="margin-top:var(--sp-12)">
+      <h2 style="margin-bottom:var(--sp-6)">Related Jobs</h2>
+      <div class="grid-3" id="related-jobs" style="gap:var(--sp-4)">
+        <div class="job-card"><div class="skeleton skeleton-title" style="width:60%"></div><div class="skeleton skeleton-text" style="width:75%;margin-top:8px"></div></div>
+        <div class="job-card"><div class="skeleton skeleton-title" style="width:60%"></div><div class="skeleton skeleton-text" style="width:75%;margin-top:8px"></div></div>
+        <div class="job-card"><div class="skeleton skeleton-title" style="width:60%"></div><div class="skeleton skeleton-text" style="width:75%;margin-top:8px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div>
+    <!-- Salary / Apply card -->
+    <div class="job-detail-sidebar-card">
+      <div class="job-detail-sidebar-card__salary" id="sidebar-salary">$--,---</div>
+      <div style="font-size:13px;color:var(--clr-text-3);margin-bottom:var(--sp-5)">Monthly Salary</div>
+      <button class="btn btn-primary btn-block" data-modal-open="apply-modal">Apply Now →</button>
+      <button class="btn btn-outline-neutral btn-block" style="margin-top:var(--sp-3)" id="sidebar-bookmark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        Save Job
+      </button>
+    </div>
+
+    <!-- Job Overview -->
+    <div class="job-detail-sidebar-card">
+      <h4 style="margin-bottom:var(--sp-5)">Job Overview</h4>
+      <div class="job-overview-grid">
+        <div class="job-overview-item">
+          <div class="job-overview-item__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Date Posted</div>
+          <div class="job-overview-item__value" id="ov-posted">—</div>
+        </div>
+        <div class="job-overview-item">
+          <div class="job-overview-item__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Location</div>
+          <div class="job-overview-item__value" id="ov-location">—</div>
+        </div>
+        <div class="job-overview-item">
+          <div class="job-overview-item__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Salary</div>
+          <div class="job-overview-item__value" id="ov-salary">—</div>
+        </div>
+        <div class="job-overview-item">
+          <div class="job-overview-item__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Job Type</div>
+          <div class="job-overview-item__value" id="ov-type">—</div>
+        </div>
+        <div class="job-overview-item">
+          <div class="job-overview-item__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Experience</div>
+          <div class="job-overview-item__value" id="ov-experience">—</div>
+        </div>
+        <div class="job-overview-item">
+          <div class="job-overview-item__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Education</div>
+          <div class="job-overview-item__value" id="ov-education">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="job-detail-sidebar-card">
+      <h4 style="margin-bottom:var(--sp-4)">Share this job:</h4>
+      <div style="display:flex;gap:var(--sp-2)">
+        <button class="footer__social-link" id="share-facebook" style="border-color:var(--clr-border);" aria-label="Share on Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></button>
+        <button class="footer__social-link" id="share-twitter" style="border-color:var(--clr-border);" aria-label="Share on Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></button>
+        <button class="footer__social-link" style="border-color:var(--clr-border);" aria-label="Share on Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0"/><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.136-1.867 3.136-4.562 0-2.387-1.715-4.057-4.163-4.057-2.833 0-4.498 2.125-4.498 4.32 0 .855.328 1.771.738 2.271a.296.296 0 0 1 .069.285c-.075.312-.242.995-.275 1.134-.044.183-.145.222-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Apply Modal ────────────────────────────────────── -->
+<div class="modal-overlay" id="apply-modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Apply for this Job</h2>
+      <button class="modal-close" data-modal-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <form class="modal-body" id="apply-form" novalidate>
+      <div class="form-group" style="margin-bottom:var(--sp-5)" id="cv-field">
+        <label class="form-label" for="apply-cv">CV / Resume</label>
+        <select class="form-select" name="cv_id" id="apply-cv">
+          <option value="">— Loading your CVs… —</option>
+        </select>
+        <p id="cv-hint" style="font-size:13px;color:var(--clr-text-3);margin-top:var(--sp-2)"></p>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="apply-cover">Cover Letter <span style="color:var(--clr-danger)">*</span></label>
+        <textarea class="form-textarea" name="cover_letter" id="apply-cover" placeholder="Write your cover letter here..." rows="5"></textarea>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <button class="btn btn-outline-neutral" data-modal-close>Cancel</button>
+      <button class="btn btn-primary" type="submit" form="apply-form">Apply Now →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Footer ─────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div><a href="../../index.html" class="footer__brand"><img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav"></a></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.quick_link">Quick Link</h4><ul class="footer__links"><li><a href="../static/about.html" class="footer__link">About</a></li><li><a href="../static/contact.html" class="footer__link">Contact</a></li><li><a href="../static/blog.html" class="footer__link">Blog</a></li></ul></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.candidate">Candidate</h4><ul class="footer__links"><li><a href="browse-jobs.html" class="footer__link">Browse Jobs</a></li><li><a href="../candidate-dashboard/dashboard.html" class="footer__link">Candidate Dashboard</a></li><li><a href="../candidate-dashboard/favorite-jobs.html" class="footer__link">Saved Jobs</a></li></ul></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.employers">Employers</h4><ul class="footer__links"><li><a href="../employer-dashboard/post-job.html" class="footer__link">Post a Job</a></li><li><a href="../employer-dashboard/dashboard.html" class="footer__link">Employers Dashboard</a></li></ul></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.support">Support</h4><ul class="footer__links"><li><a href="../static/faqs.html" class="footer__link">Faqs</a></li><li><a href="../static/terms.html" class="footer__link">Terms &amp; Conditions</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copy">&copy; 2026 Shaghlni. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script src="../../js/components.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  // Share buttons
+  (function () {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    const fb = document.getElementById('share-facebook');
+    const tw = document.getElementById('share-twitter');
+    if (fb) fb.addEventListener('click', () => window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', 'width=600,height=400'));
+    if (tw) tw.addEventListener('click', () => window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=400'));
+  })();
+
+  (function () {
+    const id = new URLSearchParams(window.location.search).get('id');
+    if (!id) {
+      const layout = document.querySelector('.job-detail-layout');
+      if (layout) {
+        layout.outerHTML =
+          '<div style="text-align:center;padding:var(--sp-16) var(--sp-4)">' +
+            '<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto var(--sp-4);display:block"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>' +
+            '<h2 style="font-size:var(--text-xl);font-weight:600;color:var(--clr-text);margin-bottom:var(--sp-3)">No job selected</h2>' +
+            '<p style="color:var(--clr-text-3);margin-bottom:var(--sp-6);max-width:360px;margin-left:auto;margin-right:auto">Please select a job from the listings to view its details.</p>' +
+            '<a href="browse-jobs.html" class="btn btn-primary">Browse Jobs</a>' +
+          '</div>';
+      }
+    }
+  })();
+</script>
+</body>
+</html>

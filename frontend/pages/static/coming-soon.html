@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body style="background:linear-gradient(135deg,#0a1628 0%,#1a2744 50%,#0a1628 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--sp-6)">
+
+<div style="text-align:center;max-width:600px;width:100%">
+
+  <!-- Logo -->
+  <a href="../../index.html" style="display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;margin-bottom:var(--sp-10)">
+    <svg width="40" height="40" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#f59e0b"/><path d="M8 22V12a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M12 10V9a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#fff" stroke-width="2"/><rect x="10" y="16" width="12" height="2" rx="1" fill="#fff"/></svg>
+    <span style="font-size:24px;font-weight:700;color:#fff">Shaghlni</span>
+  </a>
+
+  <!-- Badge -->
+  <div style="display:inline-flex;align-items:center;gap:var(--sp-2);background:rgba(10,101,204,.3);border:1px solid rgba(10,101,204,.5);border-radius:20px;padding:4px 16px;margin-bottom:var(--sp-6)">
+    <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;animation:pulse 1.5s infinite"></span>
+    <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:500">In Development</span>
+  </div>
+
+  <h1 style="font-size:clamp(32px,8vw,56px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:var(--sp-4)">We're Coming<br>Soon</h1>
+  <p style="color:rgba(255,255,255,.6);font-size:16px;line-height:1.6;margin-bottom:var(--sp-10);max-width:420px;margin-left:auto;margin-right:auto">
+    We're working hard to bring you something amazing. This page will be available shortly. Get notified when we launch!
+  </p>
+
+  <!-- Countdown -->
+  <div style="display:flex;gap:var(--sp-4);justify-content:center;margin-bottom:var(--sp-10)">
+    <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:var(--sp-4) var(--sp-5);min-width:80px">
+      <div id="days" style="font-size:36px;font-weight:700;color:#fff;line-height:1">00</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Days</div>
+    </div>
+    <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:var(--sp-4) var(--sp-5);min-width:80px">
+      <div id="hours" style="font-size:36px;font-weight:700;color:#fff;line-height:1">00</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Hours</div>
+    </div>
+    <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:var(--sp-4) var(--sp-5);min-width:80px">
+      <div id="minutes" style="font-size:36px;font-weight:700;color:#fff;line-height:1">00</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Minutes</div>
+    </div>
+    <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:var(--sp-4) var(--sp-5);min-width:80px">
+      <div id="seconds" style="font-size:36px;font-weight:700;color:#fff;line-height:1">00</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Seconds</div>
+    </div>
+  </div>
+
+  <!-- Notify Form -->
+  <form id="notify-form" style="display:flex;gap:var(--sp-3);max-width:420px;margin:0 auto var(--sp-8)" novalidate>
+    <input type="email" id="notify-email" class="form-input" placeholder="Enter your email address" style="flex:1;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;placeholder-color:rgba(255,255,255,.5)">
+    <button type="submit" class="btn btn-primary">Notify Me</button>
+  </form>
+
+  <!-- Back link -->
+  <a href="../../index.html" style="font-size:14px;color:rgba(255,255,255,.5);text-decoration:none;display:inline-flex;align-items:center;gap:var(--sp-1)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Homepage
+  </a>
+</div>
+
+<style>
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+#notify-email::placeholder { color: rgba(255,255,255,.4); }
+</style>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+  // Countdown to a launch date 30 days from now
+  const launchDate = new Date();
+  launchDate.setDate(launchDate.getDate() + 30);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = launchDate - now;
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  document.getElementById('notify-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('notify-email').value;
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      Toast.error('Please enter a valid email address.');
+      return;
+    }
+    Toast.success('You\'ll be notified when we launch!');
+    document.getElementById('notify-email').value = '';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up Your Account — Step 1 — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    .setup-steps { display:flex; margin-bottom:40px; }
+    .setup-step { flex:1; text-align:center; position:relative; }
+    .setup-step::after { content:''; position:absolute; top:16px; left:50%; width:100%; height:2px; background:var(--clr-border); z-index:0; }
+    .setup-step:last-child::after { display:none; }
+    .setup-step__dot { width:32px; height:32px; border-radius:50%; background:var(--clr-border); color:var(--clr-text-3); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; margin:0 auto 8px; position:relative; z-index:1; }
+    .setup-step--active .setup-step__dot { background:var(--clr-primary); color:#fff; }
+    .setup-step--done .setup-step__dot { background:var(--clr-primary); color:#fff; }
+    .setup-step__label { font-size:12px; color:var(--clr-text-3); }
+    .setup-step--active .setup-step__label,
+    .setup-step--done .setup-step__label { color:var(--clr-primary); font-weight:500; }
+  </style>
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body style="background:var(--clr-bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px">
+
+  <a href="../../index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:40px">
+    <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+    <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+  </a>
+
+  <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:40px;width:100%;max-width:640px">
+
+    <!-- Step Indicator -->
+    <div class="setup-steps">
+      <div class="setup-step setup-step--active">
+        <div class="setup-step__dot">1</div>
+        <div class="setup-step__label">Personal</div>
+      </div>
+      <div class="setup-step">
+        <div class="setup-step__dot">2</div>
+        <div class="setup-step__label">Profile</div>
+      </div>
+      <div class="setup-step">
+        <div class="setup-step__dot">3</div>
+        <div class="setup-step__label">Social</div>
+      </div>
+      <div class="setup-step">
+        <div class="setup-step__dot">4</div>
+        <div class="setup-step__label">Contact</div>
+      </div>
+      <div class="setup-step">
+        <div class="setup-step__dot">5</div>
+        <div class="setup-step__label">Finish</div>
+      </div>
+    </div>
+
+    <h1 style="font-size:var(--text-2xl);font-weight:700;color:var(--clr-text);margin-bottom:6px">Basic Information</h1>
+    <p style="color:var(--clr-text-3);margin-bottom:var(--sp-8)">Tell us about yourself so candidates can connect with you.</p>
+
+    <form id="setup-form-1">
+      <div class="form-group" style="margin-bottom:var(--sp-5)">
+        <label class="form-label" for="full-name">Full Name <span style="color:var(--clr-danger)">*</span></label>
+        <input class="form-input" type="text" id="full-name" placeholder="e.g. John Smith" required>
+      </div>
+
+      <div class="form-group" style="margin-bottom:var(--sp-5)">
+        <label class="form-label" for="headline">Job Title / Headline <span style="color:var(--clr-danger)">*</span></label>
+        <input class="form-input" type="text" id="headline" placeholder="e.g. HR Manager at TechCorp" required>
+      </div>
+
+      <div class="form-group" style="margin-bottom:var(--sp-5)">
+        <label class="form-label" for="bio">Bio / About</label>
+        <textarea class="form-input" id="bio" rows="4" placeholder="Tell candidates about your hiring goals and company culture..." style="resize:vertical"></textarea>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;margin-top:var(--sp-8)">
+        <button type="submit" class="btn btn-primary">Save & Next →</button>
+      </div>
+    </form>
+  </div>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src='../../js/auth-guard.js'></script>
+<script>
+  document.getElementById('setup-form-1').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('full-name').value.trim();
+    if (!name) { Toast.warning('Please enter your full name.'); return; }
+    Toast.success('Saved! Proceeding to next step.');
+    setTimeout(() => window.location.href = 'account-setup-profile.html', 800);
+  });
+</script>
+</body>
+</html>

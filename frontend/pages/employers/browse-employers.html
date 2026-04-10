@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Companies — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- ─── Public Navbar ──────────────────────────────────── -->
+<nav class="navbar-public">
+  <div class="navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <ul class="navbar-public__nav">
+      <li><a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a></li>
+      <li><a href="browse-employers.html" class="navbar-public__link active" data-i18n="nav.find_employers">Find Employers</a></li>
+      <li><a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a></li>
+      <li><a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+    <a href="browse-employers.html" class="navbar-public__link active" data-i18n="nav.find_employers">Find Employers</a>
+    <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-header__title">Top Companies</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html" class="breadcrumb__item">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__item breadcrumb__item--active">Find Employers</span>
+    </nav>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="container" style="padding:var(--sp-10) var(--sp-4);min-height:60vh">
+
+  <!-- Search + Sort Bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap;margin-bottom:var(--sp-6)">
+    <div style="display:flex;align-items:center;gap:var(--sp-3);flex:1;min-width:220px">
+      <div style="position:relative;flex:1;max-width:340px">
+        <svg style="position:absolute;inset-inline-start:12px;top:50%;transform:translateY(-50%);color:var(--clr-text-3)" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="employer-search" class="form-input" style="padding-inline-start:38px" placeholder="Company name or keyword">
+      </div>
+      <select class="form-input form-select" id="industry-filter" style="max-width:180px">
+        <option value="">All Industries</option>
+        <option value="technology">Technology</option>
+        <option value="finance">Finance</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="education">Education</option>
+        <option value="retail">Retail</option>
+        <option value="manufacturing">Manufacturing</option>
+      </select>
+    </div>
+    <div style="display:flex;align-items:center;gap:var(--sp-3)">
+      <span id="result-count" style="font-size:14px;color:var(--clr-text-3)">Showing companies</span>
+      <select class="form-input form-select" id="sort-filter" style="width:auto">
+        <option value="latest">Latest</option>
+        <option value="az">A – Z</option>
+        <option value="jobs">Most Jobs</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Employer Grid -->
+  <div id="employers-grid" class="grid-4" style="margin-bottom:var(--sp-8)">
+    <!-- Skeleton placeholders -->
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+    <div class="skeleton" style="height:200px;border-radius:var(--r-lg)"></div>
+  </div>
+
+  <!-- Pagination -->
+  <div id="pagination-container" style="display:flex;justify-content:center"></div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <a href="../../index.html" class="site-footer__brand">
+          <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+          <span>Shaghlni</span>
+        </a>
+        <p class="site-footer__tagline">Find your dream job or the best candidates with Shaghlni.</p>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.quick_link">Quick Link</h4>
+        <ul>
+          <li><a href="../static/about.html">About</a></li>
+          <li><a href="../static/contact.html">Contact</a></li>
+          <li><a href="../static/blog.html">Blog</a></li>
+          <li><a href="../static/faqs.html">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.candidate">Candidate</h4>
+        <ul>
+          <li><a href="../jobs/browse-jobs.html">Browse Jobs</a></li>
+          <li><a href="../candidates/browse-candidates.html">Browse Candidates</a></li>
+          <li><a href="../candidates/single-candidate.html">Candidate Details</a></li>
+          <li><a href="../auth/login.html">Candidate Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.employers">Employers</h4>
+        <ul>
+          <li><a href="browse-employers.html">Browse Employers</a></li>
+          <li><a href="single-employer.html">Employer Details</a></li>
+          <li><a href="../auth/login.html">Employer Dashboard</a></li>
+          <li><a href="../auth/login.html">Post a Job</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="../static/faqs.html">Faqs</a></li>
+          <li><a href="../static/privacy.html">Privacy Policy</a></li>
+          <li><a href="../static/terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 Shaghlni. All rights reserved.</p>
+      <div class="site-footer__socials">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#fff" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script src="../../js/components.js"></script>
+<script>
+  const COLORS = ['#f59e0b','#0BA02C','#FF6550','#d97706','#E05151','#F59E0B'];
+  function cardColor(id) { return COLORS[id % COLORS.length]; }
+  function initials(name) { return (name || '?').substring(0, 2).toUpperCase(); }
+
+  const PAGE_SIZE = 12;
+  let currentPage = 1;
+  let allEmployers = [];
+  let filtered = [];
+
+  function renderCard(emp, index) {
+    const color = cardColor(index);
+    const name  = emp.company_name || '—';
+    const ind   = emp.industry    || '';
+    const loc   = emp.location    || '';
+    const size  = emp.company_size ? emp.company_size + ' employees' : emp.business_type || '';
+    const jobs  = emp.job_count ?? 0;
+    return `
+      <a href="single-employer.html?id=${emp.id}" class="employer-card" style="text-decoration:none;display:flex;flex-direction:column">
+        <div style="width:56px;height:56px;border-radius:var(--r-md);background:${color}20;color:${color};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;margin:0 auto var(--sp-3)">${initials(name)}</div>
+        <h3 class="employer-card__name">${name}</h3>
+        <p class="employer-card__industry">${ind}${ind && loc ? ' &middot; ' : ''}${loc}</p>
+        <div style="margin-top:auto;padding-top:var(--sp-3);display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2);flex-wrap:wrap">
+          <span style="font-size:12px;color:var(--clr-text-3)">${size}</span>
+          <span class="badge-primary-light">${jobs} Open Jobs</span>
+        </div>
+      </a>`;
+  }
+
+  function applyFilters() {
+    const q   = document.getElementById('employer-search').value.toLowerCase().trim();
+    const ind = document.getElementById('industry-filter').value.toLowerCase();
+    const srt = document.getElementById('sort-filter').value;
+
+    filtered = allEmployers.filter(e => {
+      const name = (e.company_name || '').toLowerCase();
+      const eind = (e.industry     || '').toLowerCase();
+      return (!q || name.includes(q) || eind.includes(q)) &&
+             (!ind || eind === ind);
+    });
+
+    if (srt === 'az')   filtered.sort((a, b) => (a.company_name||'').localeCompare(b.company_name||''));
+    if (srt === 'jobs') filtered.sort((a, b) => (b.job_count||0) - (a.job_count||0));
+
+    currentPage = 1;
+    renderPage();
+  }
+
+  function renderPage() {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const items = filtered.slice(start, start + PAGE_SIZE);
+    const grid  = document.getElementById('employers-grid');
+
+    document.getElementById('result-count').textContent = `Showing ${filtered.length} companies`;
+
+    if (!items.length) {
+      grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><h3>No companies found</h3><p>Try adjusting your filters.</p></div>';
+    } else {
+      grid.innerHTML = items.map((e, i) => renderCard(e, start + i)).join('');
+    }
+
+    const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+    renderPagination(document.getElementById('pagination-container'), totalPages, currentPage, p => { currentPage = p; renderPage(); window.scrollTo(0,0); });
+  }
+
+  document.getElementById('employer-search').addEventListener('input', debounce(applyFilters, 300));
+  document.getElementById('industry-filter').addEventListener('change', applyFilters);
+  document.getElementById('sort-filter').addEventListener('change', applyFilters);
+
+  // Load real employers from API
+  (async () => {
+    const grid = document.getElementById('employers-grid');
+    grid.innerHTML = '<div class="skeleton" style="height:160px;border-radius:var(--r-lg);grid-column:1/-1"></div>';
+    try {
+      const res = await API.getEmployers({ limit: 500 });
+      // /api/employers returns { success, data: { data: [...], pagination: {} } }
+      const payload = res.data || {};
+      allEmployers = Array.isArray(payload) ? payload : (payload.data || []);
+      filtered = [...allEmployers];
+      renderPage();
+    } catch {
+      grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><h3>Could not load employers</h3><p>Please try again later.</p></div>';
+    }
+  })();
+</script>
+</body>
+</html>

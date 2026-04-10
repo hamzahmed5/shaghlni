@@ -1,0 +1,25 @@
+# Jobs Platform — Python script dependencies
+# Install with: pip install -r requirements.txt
+
+# ── Database ──────────────────────────────────────────────────────────────────
+pymysql>=1.1.0
+
+# ── NLP ───────────────────────────────────────────────────────────────────────
+nltk>=3.8.1
+
+# ── ML / Embeddings ───────────────────────────────────────────────────────────
+numpy>=1.26.0
+scikit-learn>=1.4.0
+sentence-transformers>=2.7.0   # includes SBERT + CrossEncoder
+
+# ── FAISS (choose ONE depending on your hardware) ─────────────────────────────
+# CPU only (shared hosting / no GPU):
+faiss-cpu>=1.8.0
+# GPU (uncomment below and comment faiss-cpu if you have CUDA):
+# faiss-gpu>=1.7.0
+
+# ── Geography ─────────────────────────────────────────────────────────────────
+geopy>=2.4.1
+
+# ── Data (import script only) ─────────────────────────────────────────────────
+# pandas is optional — import_dataset.py uses csv module (stdlib) instead

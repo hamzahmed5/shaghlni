@@ -1,0 +1,60 @@
+Options -Indexes
+
+# PHP settings
+php_flag display_errors Off
+php_value upload_max_filesize 10M
+php_value post_max_size 12M
+php_value max_execution_time 120
+
+# Custom error pages — only for non-API requests
+# API requests (backend/) return JSON; let them handle their own 404s
+ErrorDocument 404 /jobpilot/404.php
+ErrorDocument 403 /jobpilot/404.php
+
+# Protect sensitive directories
+<FilesMatch "\.(sql|py|env|log|gitignore)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /jobpilot/
+
+    # ── Route new JSON API backend ────────────────────────────────────────
+    # backend/api/* requests that don't map to a real file go to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^backend/(.*)$ backend/index.php [QSA,L]
+
+    # Block direct access to old app sensitive directories
+    RewriteRule ^(includes|config|database|ml)/ - [F,L]
+
+    # Block access to hidden files
+    RewriteRule (^|/)\.  - [F,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript text/javascript
+</IfModule>
+
+# Browser caching for assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css               "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/jpeg             "access plus 30 days"
+    ExpiresByType image/png              "access plus 30 days"
+    ExpiresByType image/webp             "access plus 30 days"
+    ExpiresByType image/svg+xml         "access plus 30 days"
+    ExpiresByType font/woff2             "access plus 90 days"
+</IfModule>

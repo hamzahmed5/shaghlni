@@ -1,0 +1,46 @@
+<!-- ============================================================
+     job-card.html — Job Card Component (static demo instance)
+     In use: renderJobCard() in components.js generates these
+     dynamically. This file shows the static template for
+     reference and CSS testing.
+     ============================================================ -->
+<div class="job-card">
+  <!-- Header: badge + bookmark -->
+  <div class="job-card__header">
+    <span class="badge badge-full-time">Full Time</span>
+    <button class="job-card__bookmark" title="Save job" aria-label="Save job">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Job title -->
+  <h3 class="job-card__title">
+    <a href="/jobpilot/frontend/pages/jobs/single-job.html?id=101">Technical Support Specialist</a>
+  </h3>
+
+  <!-- Company -->
+  <div class="job-card__company">
+    <div class="job-card__logo-placeholder">G</div>
+    <span class="job-card__company-name">Google Inc.</span>
+  </div>
+
+  <!-- Meta: location + salary -->
+  <div class="job-card__meta">
+    <span class="job-card__meta-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      Dhaka, Bangladesh
+    </span>
+    <span class="job-card__meta-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="1" x2="12" y2="23"/>
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+      $20,000 – $25,000
+    </span>
+  </div>
+</div>

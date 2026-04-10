@@ -1,0 +1,292 @@
+/* ============================================================
+   variables.css — Design Tokens
+   Jobpilot Job Platform
+   Light default → dark override via [data-theme="dark"]
+   Primary: Amber (#f59e0b)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* ── Raw design tokens — LIGHT theme (default) ───────────── */
+:root {
+
+  /* Shadcn/ui source tokens — light variant */
+  --background:             #ffffff;
+  --foreground:             #262626;
+  --card:                   #ffffff;
+  --card-foreground:        #262626;
+  --popover:                #ffffff;
+  --popover-foreground:     #262626;
+  --primary:                #f59e0b;
+  --primary-foreground:     #000000;
+  --secondary:              #f3f4f6;
+  --secondary-foreground:   #4b5563;
+  --muted:                  #f9fafb;
+  --muted-foreground:       #6b7280;
+  --accent:                 #fffbeb;
+  --accent-foreground:      #92400e;
+  --destructive:            #ef4444;
+  --destructive-foreground: #ffffff;
+  --border:                 #e5e7eb;
+  --input:                  #e5e7eb;
+  --ring:                   #f59e0b;
+  --sidebar:                #f9fafb;
+  --sidebar-border:         #e5e7eb;
+  --sidebar-accent:         #fffbeb;
+  --sidebar-accent-foreground: #92400e;
+  --sidebar-primary:        #f59e0b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-foreground:     #262626;
+  --sidebar-ring:           #f59e0b;
+
+  /* Charts — amber scale */
+  --chart-1: #f59e0b;
+  --chart-2: #d97706;
+  --chart-3: #b45309;
+  --chart-4: #92400e;
+  --chart-5: #78350f;
+
+  /* ── Jobpilot alias tokens — light ──────────────────────── */
+
+  /* Brand / Primary */
+  --clr-primary:        var(--primary);               /* #f59e0b */
+  --clr-primary-dark:   #d97706;
+  --clr-primary-light:  var(--accent);                /* #fffbeb */
+  --clr-primary-50:     rgba(245, 158, 11, 0.08);
+
+  /* Status */
+  --clr-success:        #16a34a;
+  --clr-success-light:  rgba(22, 163, 74, 0.10);
+  --clr-warning:        #d97706;
+  --clr-warning-light:  rgba(217, 119, 6, 0.10);
+  --clr-danger:         var(--destructive);
+  --clr-danger-light:   rgba(239, 68, 68, 0.10);
+
+  /* Accent badges */
+  --clr-purple:         #7c3aed;
+  --clr-purple-light:   rgba(124, 58, 237, 0.10);
+  --clr-orange:         #ea580c;
+  --clr-orange-light:   rgba(234, 88, 12, 0.10);
+  --clr-teal:           #0d9488;
+  --clr-teal-light:     rgba(13, 148, 136, 0.10);
+  --clr-indigo:         #4f46e5;
+  --clr-indigo-light:   rgba(79, 70, 229, 0.10);
+
+  /* ── Neutrals ────────────────────────────────────────────── */
+  --clr-text:           var(--foreground);            /* #262626 */
+  --clr-text-2:         var(--card-foreground);       /* #262626 */
+  --clr-text-3:         var(--muted-foreground);      /* #6b7280 */
+  --clr-text-4:         #9ca3af;
+  --clr-border:         var(--border);                /* #e5e7eb */
+  --clr-border-2:       var(--sidebar-border);        /* #e5e7eb */
+  --clr-bg:             var(--background);            /* #ffffff */
+  --clr-bg-2:           var(--muted);                 /* #f9fafb */
+  --clr-white:          var(--card);                  /* #ffffff */
+
+  /* True white/black for text ON colored backgrounds */
+  --clr-true-white:     #ffffff;
+  --clr-true-black:     #000000;
+
+  /* Surface layers */
+  --clr-surface-1:      var(--card);                  /* #ffffff */
+  --clr-surface-2:      var(--secondary);             /* #f3f4f6 */
+  --clr-surface-3:      #d1d5db;
+
+  /* Dark section aliases (used in dark panels on light pages) */
+  --clr-dark:           #1c1c1c;
+  --clr-dark-2:         #2d2d2d;
+  --clr-dark-muted:     #6b7280;
+
+  /* Shadow color */
+  --shadow-color:       rgba(245, 158, 11, 0.15);
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-xs:    12px;
+  --text-sm:    14px;
+  --text-base:  16px;
+  --text-md:    18px;
+  --text-lg:    20px;
+  --text-xl:    24px;
+  --text-2xl:   28px;
+  --text-3xl:   32px;
+  --text-4xl:   40px;
+  --text-5xl:   48px;
+
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  --lh-tight:   1.2;
+  --lh-snug:    1.35;
+  --lh-base:    1.5;
+  --lh-relaxed: 1.75;
+
+  /* ── Spacing (4-pt grid) ─────────────────────────────────── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-14:  56px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+
+  /* ── Border Radius ───────────────────────────────────────── */
+  --r-xs:   2px;
+  --r-sm:   6px;
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-xl:   16px;
+  --r-2xl:  24px;
+  --r-full: 9999px;
+
+  /* ── Shadows — light theme ───────────────────────────────── */
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-lg:   0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-modal:0 24px 64px rgba(0, 0, 0, 0.18);
+  --shadow-glow: 0 0 20px var(--shadow-color);
+
+  /* ── Glass / Blur ────────────────────────────────────────── */
+  --glass-bg:     rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(0, 0, 0, 0.07);
+  --backdrop:     blur(12px) saturate(180%);
+
+  /* ── Transitions ─────────────────────────────────────────── */
+  --ease-fast:   150ms ease;
+  --ease-base:   200ms ease;
+  --ease-slow:   300ms ease;
+  --ease-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Motion Curves ───────────────────────────────────────── */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-quart:  cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-gentle:    cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Motion Durations ────────────────────────────────────── */
+  --dur-instant:  80ms;
+  --dur-fast:     150ms;
+  --dur-base:     220ms;
+  --dur-slow:     350ms;
+  --dur-enter:    280ms;
+  --dur-exit:     180ms;
+
+  /* ── Motion Scale ────────────────────────────────────────── */
+  --scale-press:  0.97;
+  --scale-pop:    1.03;
+  --lift-sm:      translateY(-2px);
+  --lift-md:      translateY(-4px);
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  --container:    1200px;
+  --navbar-h:     64px;
+  --navbar-top-h: 40px;
+  --sidebar-w:    260px;
+}
+
+
+/* ── Raw design tokens — DARK theme override ─────────────── */
+[data-theme="dark"] {
+
+  /* Shadcn/ui source tokens — dark variant */
+  --background:             #171717;
+  --foreground:             #e5e5e5;
+  --card:                   #262626;
+  --card-foreground:        #e5e5e5;
+  --popover:                #262626;
+  --popover-foreground:     #e5e5e5;
+  --primary:                #f59e0b;
+  --primary-foreground:     #000000;
+  --secondary:              #262626;
+  --secondary-foreground:   #e5e5e5;
+  --muted:                  #262626;
+  --muted-foreground:       #a3a3a3;
+  --accent:                 #92400e;
+  --accent-foreground:      #fde68a;
+  --destructive:            #ef4444;
+  --destructive-foreground: #ffffff;
+  --border:                 #404040;
+  --input:                  #404040;
+  --ring:                   #f59e0b;
+  --sidebar:                #0f0f0f;
+  --sidebar-border:         #404040;
+  --sidebar-accent:         #92400e;
+  --sidebar-accent-foreground: #fde68a;
+  --sidebar-primary:        #f59e0b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-foreground:     #e5e5e5;
+  --sidebar-ring:           #f59e0b;
+
+  /* Charts — amber scale dark */
+  --chart-1: #fbbf24;
+  --chart-2: #d97706;
+  --chart-3: #92400e;
+  --chart-4: #b45309;
+  --chart-5: #92400e;
+
+  /* ── Jobpilot alias overrides — dark ────────────────────── */
+  --clr-primary:        var(--primary);               /* #f59e0b */
+  --clr-primary-dark:   #d97706;
+  --clr-primary-light:  var(--accent);                /* #92400e */
+  --clr-primary-50:     rgba(245, 158, 11, 0.12);
+
+  --clr-success:        #22c55e;
+  --clr-success-light:  rgba(34, 197, 94, 0.12);
+  --clr-warning:        #fbbf24;
+  --clr-warning-light:  rgba(251, 191, 36, 0.12);
+  --clr-danger:         var(--destructive);
+  --clr-danger-light:   rgba(239, 68, 68, 0.12);
+
+  --clr-purple:         #a78bfa;
+  --clr-purple-light:   rgba(167, 139, 250, 0.12);
+  --clr-orange:         #fb923c;
+  --clr-orange-light:   rgba(251, 146, 60, 0.12);
+  --clr-teal:           #2dd4bf;
+  --clr-teal-light:     rgba(45, 212, 191, 0.12);
+  --clr-indigo:         #818cf8;
+  --clr-indigo-light:   rgba(129, 140, 248, 0.12);
+
+  --clr-text:           var(--foreground);            /* #e5e5e5 */
+  --clr-text-2:         var(--card-foreground);       /* #e5e5e5 */
+  --clr-text-3:         var(--muted-foreground);      /* #a3a3a3 */
+  --clr-text-4:         #737373;
+  --clr-border:         var(--border);                /* #404040 */
+  --clr-border-2:       var(--sidebar-border);        /* #404040 */
+  --clr-bg:             var(--background);            /* #171717 */
+  --clr-bg-2:           var(--muted);                 /* #262626 */
+  --clr-white:          var(--card);                  /* #262626 */
+
+  --clr-surface-1:      var(--card);                  /* #262626 */
+  --clr-surface-2:      var(--input);                 /* #404040 */
+  --clr-surface-3:      #525252;
+
+  --clr-dark:           var(--background);
+  --clr-dark-2:         var(--card);
+  --clr-dark-muted:     var(--muted-foreground);
+
+  --shadow-color:       rgba(245, 158, 11, 0.20);
+
+  /* ── Shadows — dark theme ────────────────────────────────── */
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.50);
+  --shadow-lg:   0 8px 30px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-modal:0 24px 64px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 0 24px var(--shadow-color);
+
+  /* ── Glass / Blur — dark ─────────────────────────────────── */
+  --glass-bg:     rgba(23, 23, 23, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.06);
+}

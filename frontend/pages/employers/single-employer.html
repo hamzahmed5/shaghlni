@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Profile — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- ─── Public Navbar ──────────────────────────────────── -->
+<nav class="navbar-public">
+  <div class="navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <ul class="navbar-public__nav">
+      <li><a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a></li>
+      <li><a href="browse-employers.html" class="navbar-public__link active" data-i18n="nav.find_employers">Find Employers</a></li>
+      <li><a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a></li>
+      <li><a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+    <a href="browse-employers.html" class="navbar-public__link active" data-i18n="nav.find_employers">Find Employers</a>
+    <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</nav>
+
+<!-- COMPANY PROFILE BANNER -->
+<div id="company-banner" style="background:var(--clr-white);border-bottom:1px solid var(--clr-border)">
+  <div class="container" style="padding-top:var(--sp-8);padding-bottom:var(--sp-8)">
+    <nav class="breadcrumb" style="margin-bottom:var(--sp-4)">
+      <a href="../../index.html" class="breadcrumb__item">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <a href="browse-employers.html" class="breadcrumb__item">Find Employers</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__item breadcrumb__item--active" id="breadcrumb-name">Company</span>
+    </nav>
+    <div style="display:flex;align-items:flex-start;gap:var(--sp-6);flex-wrap:wrap">
+      <div id="company-logo-banner" style="width:80px;height:80px;border-radius:var(--r-lg);background:#f59e0b20;color:#f59e0b;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:24px;flex-shrink:0">GO</div>
+      <div style="flex:1;min-width:200px">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-1)">
+          <h1 id="company-name" style="font-size:var(--text-2xl);font-weight:700;color:var(--clr-text)">Google</h1>
+          <span class="badge badge-success" style="font-size:12px">Verified</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--sp-4);flex-wrap:wrap;color:var(--clr-text-3);font-size:14px">
+          <span id="company-industry" style="display:flex;align-items:center;gap:4px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            Technology
+          </span>
+          <span id="company-location" style="display:flex;align-items:center;gap:4px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            California, USA
+          </span>
+          <span id="company-size" style="display:flex;align-items:center;gap:4px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            10000+ employees
+          </span>
+        </div>
+      </div>
+      <div style="display:flex;gap:var(--sp-3)">
+        <a id="company-website" href="#" target="_blank" class="btn btn-outline-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Website
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="container" style="padding:var(--sp-8) var(--sp-4)">
+  <div class="job-detail-layout">
+
+    <!-- LEFT: Company info + Jobs -->
+    <div>
+      <!-- About -->
+      <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-6);margin-bottom:var(--sp-6)">
+        <h2 style="font-size:var(--text-xl);font-weight:600;margin-bottom:var(--sp-4)">About Company</h2>
+        <p id="company-about" style="color:var(--clr-text-2);line-height:1.7">
+          We are a multinational technology company specializing in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware. We offer an incredible range of opportunities for people with all kinds of backgrounds and interests.
+        </p>
+      </div>
+
+      <!-- Open Positions -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-4)">
+          <h2 style="font-size:var(--text-xl);font-weight:600">Open Positions <span id="open-count" style="font-size:16px;color:var(--clr-text-3);font-weight:400">(25)</span></h2>
+        </div>
+        <div id="company-jobs" class="grid-1" style="gap:var(--sp-3)">
+          <div class="skeleton" style="height:100px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:100px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:100px;border-radius:var(--r-lg)"></div>
+        </div>
+        <div id="jobs-pagination" style="margin-top:var(--sp-6);display:flex;justify-content:center"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Company overview -->
+    <aside>
+      <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-6);margin-bottom:var(--sp-4)">
+        <h3 style="font-size:var(--text-base);font-weight:600;margin-bottom:var(--sp-4)">Company Info</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--sp-4)">
+          <li style="display:flex;align-items:flex-start;gap:var(--sp-3)">
+            <div style="width:36px;height:36px;border-radius:var(--r-md);background:var(--clr-primary-light);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--clr-text-3);margin-bottom:2px">Website</p>
+              <a id="overview-website" href="#" style="font-size:14px;font-weight:500;color:var(--clr-primary)">www.google.com</a>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:var(--sp-3)">
+            <div style="width:36px;height:36px;border-radius:var(--r-md);background:#0BA02C20;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--clr-text-3);margin-bottom:2px">Industry</p>
+              <p id="overview-industry" style="font-size:14px;font-weight:500;color:var(--clr-text)">Technology</p>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:var(--sp-3)">
+            <div style="width:36px;height:36px;border-radius:var(--r-md);background:#FF655020;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6550" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--clr-text-3);margin-bottom:2px">Company Size</p>
+              <p id="overview-size" style="font-size:14px;font-weight:500;color:var(--clr-text)">10000+ Employees</p>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:var(--sp-3)">
+            <div style="width:36px;height:36px;border-radius:var(--r-md);background:#d9770620;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--clr-text-3);margin-bottom:2px">Founded</p>
+              <p id="overview-founded" style="font-size:14px;font-weight:500;color:var(--clr-text)">1998</p>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:var(--sp-3)">
+            <div style="width:36px;height:36px;border-radius:var(--r-md);background:#F59E0B20;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--clr-text-3);margin-bottom:2px">Location</p>
+              <p id="overview-location" style="font-size:14px;font-weight:500;color:var(--clr-text)">California, USA</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-6)">
+        <h3 style="font-size:var(--text-base);font-weight:600;margin-bottom:var(--sp-4)">Follow Us</h3>
+        <div style="display:flex;gap:var(--sp-3)">
+          <a href="#" style="width:36px;height:36px;border-radius:var(--r-md);background:var(--clr-bg);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;color:var(--clr-text-2)" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" style="width:36px;height:36px;border-radius:var(--r-md);background:var(--clr-bg);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;color:var(--clr-text-2)" aria-label="Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="#" style="width:36px;height:36px;border-radius:var(--r-md);background:var(--clr-bg);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;color:var(--clr-text-2)" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <a href="../../index.html" class="site-footer__brand">
+          <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+          <span>Shaghlni</span>
+        </a>
+        <p class="site-footer__tagline">Find your dream job or the best candidates with Shaghlni.</p>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.quick_link">Quick Link</h4>
+        <ul>
+          <li><a href="../static/about.html">About</a></li>
+          <li><a href="../static/contact.html">Contact</a></li>
+          <li><a href="../static/blog.html">Blog</a></li>
+          <li><a href="../static/faqs.html">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.candidate">Candidate</h4>
+        <ul>
+          <li><a href="../jobs/browse-jobs.html">Browse Jobs</a></li>
+          <li><a href="../candidates/browse-candidates.html">Browse Candidates</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.employers">Employers</h4>
+        <ul>
+          <li><a href="browse-employers.html">Browse Employers</a></li>
+          <li><a href="../auth/login.html">Post a Job</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="../static/faqs.html">Faqs</a></li>
+          <li><a href="../static/terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 Shaghlni. All rights reserved.</p>
+      <div class="site-footer__socials">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script src="../../js/components.js"></script>
+<script>
+  const COLORS = ['#f59e0b','#0BA02C','#FF6550','#d97706','#E05151','#F59E0B'];
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const rawId = urlParams.get('id');
+
+  function setTxt(id, val) { const el = document.getElementById(id); if (el) el.textContent = val || '—'; }
+  function setHTML(id, val) { const el = document.getElementById(id); if (el) el.innerHTML = val; }
+
+  if (!rawId) {
+    document.getElementById('company-banner').style.display = 'none';
+    document.querySelector('main').innerHTML =
+      '<div style="text-align:center;padding:var(--sp-16) var(--sp-4)">' +
+        '<h2 style="font-size:var(--text-xl);font-weight:600;color:var(--clr-text);margin-bottom:var(--sp-3)">No employer selected</h2>' +
+        '<p style="color:var(--clr-text-3);margin-bottom:var(--sp-6)">Please select a company from the listings to view its profile.</p>' +
+        '<a href="browse-employers.html" class="btn btn-primary">Browse Employers</a>' +
+      '</div>';
+  } else {
+    (async () => {
+      try {
+        const res = await API.getEmployer(rawId);
+        const emp = res.data;
+        if (!emp) throw new Error('Not found');
+
+        const color = COLORS[emp.id % COLORS.length];
+        const name  = emp.company_name || '—';
+        const logo  = name.substring(0, 2).toUpperCase();
+
+        // Banner
+        const logoEl = document.getElementById('company-logo-banner');
+        if (logoEl) { logoEl.textContent = logo; logoEl.style.background = color + '20'; logoEl.style.color = color; }
+        setTxt('company-name',    name);
+        setTxt('breadcrumb-name', name);
+        setHTML('company-industry', `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg> ${emp.industry || '—'}`);
+        setHTML('company-location', `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${emp.location || '—'}`);
+        setHTML('company-size', `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> ${emp.company_size || emp.business_type || '—'}`);
+        setTxt('company-about', emp.about || 'No description available.');
+        setTxt('open-count', `(${emp.job_count || 0})`);
+        document.title = name + ' — Shaghlni';
+
+        // Website link
+        const webEl = document.getElementById('company-website');
+        if (webEl && emp.website) { webEl.href = emp.website.startsWith('http') ? emp.website : 'https://' + emp.website; webEl.textContent = emp.website; }
+
+        // Sidebar overview
+        setTxt('overview-industry', emp.industry);
+        setTxt('overview-size', emp.company_size ? emp.company_size + ' Employees' : emp.business_type);
+        setTxt('overview-founded', '—');
+        setTxt('overview-location', emp.location);
+        const ovWeb = document.getElementById('overview-website');
+        if (ovWeb && emp.website) { ovWeb.href = emp.website.startsWith('http') ? emp.website : 'https://' + emp.website; ovWeb.textContent = emp.website; }
+
+        // Jobs from the employer endpoint
+        const jobs = Array.isArray(emp.recent_jobs) ? emp.recent_jobs : [];
+        const container = document.getElementById('company-jobs');
+        if (container) {
+          container.innerHTML = jobs.length
+            ? jobs.map(j => renderJobCard(j)).join('')
+            : '<div class="empty-state"><h3>No open positions</h3><p>Check back later for new opportunities.</p></div>';
+        }
+
+      } catch {
+        document.getElementById('company-banner').style.display = 'none';
+        document.querySelector('main').innerHTML =
+          '<div style="text-align:center;padding:var(--sp-16) var(--sp-4)">' +
+            '<h2 style="color:var(--clr-text);margin-bottom:var(--sp-3)">Employer not found</h2>' +
+            '<a href="browse-employers.html" class="btn btn-primary">Browse Employers</a>' +
+          '</div>';
+      }
+    })();
+  }
+</script>
+</body>
+</html>

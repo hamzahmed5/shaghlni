@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaghlni — Find a Job That Suits Your Interest & Skills</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+<link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+
+<!-- ─── Public Navbar ──────────────────────────────────── -->
+<nav class="navbar-public">
+  <div class="navbar-public__inner">
+    <a href="index.html" class="navbar-public__brand" aria-label="Shaghlni home">
+      <img src="assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+    </a>
+    <ul class="navbar-public__nav">
+      <li><a href="index.html" class="navbar-public__link active" data-i18n="nav.home">Home</a></li>
+      <li><a href="pages/jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a></li>
+      <li><a href="pages/employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a></li>
+      <li><a href="pages/candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a></li>
+      <li><a href="pages/static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="pages/static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="pages/auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="pages/employer-dashboard/post-job.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu">
+    <a href="index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="pages/jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+    <a href="pages/employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a>
+    <a href="pages/candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="pages/static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="pages/static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="pages/auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="pages/employer-dashboard/post-job.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Hero ───────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Find Your Next Career Move
+      </p>
+      <h1 class="hero__title">Find a job that suits<br> your <span class="highlight">interest</span> &amp; skills.</h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">
+        Search thousands of jobs across every industry. Connect with top employers and take the next step in your career today.
+      </p>
+
+      <!-- Search bar -->
+      <div class="hero__search">
+        <div class="hero__search-field">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="hero__search-input" id="hero-keyword" placeholder="Job title, Keyword..." data-i18n-placeholder="hero.kw_placeholder" aria-label="Job title or keyword">
+        </div>
+        <div class="hero__search-sep"></div>
+        <div class="hero__search-field">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" class="hero__search-input" id="hero-location" placeholder="Your Location" data-i18n-placeholder="hero.loc_placeholder" aria-label="Location">
+        </div>
+        <a href="pages/jobs/browse-jobs.html" class="btn btn-primary btn-lg hero-search-btn" id="hero-search-btn" data-i18n="hero.find_job_btn">Find Job</a>
+      </div>
+
+      <!-- Popular searches -->
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--clr-text-3)">
+        <span>Popular Searches:</span>
+        <a href="pages/jobs/browse-jobs.html" style="color:var(--clr-primary);font-weight:500">UI/UX Designer</a>
+        <a href="pages/jobs/browse-jobs.html" style="color:var(--clr-text-3)">Product Manager</a>
+        <a href="pages/jobs/browse-jobs.html" style="color:var(--clr-text-3)">Developers</a>
+        <a href="pages/jobs/browse-jobs.html" style="color:var(--clr-text-3)">Data Entry</a>
+        <a href="pages/jobs/browse-jobs.html" style="color:var(--clr-text-3)">Accounting</a>
+      </div>
+    </div>
+
+    <!-- Illustration placeholder -->
+    <div class="hero__illustration">
+      <div style="width:380px;height:340px;background:linear-gradient(135deg,var(--clr-primary-light) 0%,var(--clr-bg-2) 100%);border-radius:var(--r-2xl);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <svg width="180" height="180" viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="80" r="40" fill="#f59e0b" opacity="0.15"/>
+          <circle cx="100" cy="80" r="25" fill="#f59e0b" opacity="0.3"/>
+          <rect x="55" y="125" width="90" height="12" rx="6" fill="#f59e0b" opacity="0.2"/>
+          <rect x="65" y="145" width="70" height="10" rx="5" fill="#f59e0b" opacity="0.15"/>
+          <rect x="75" y="163" width="50" height="8" rx="4" fill="#f59e0b" opacity="0.1"/>
+          <circle cx="40" cy="60" r="14" fill="#f59e0b" opacity="0.1"/>
+          <circle cx="160" cy="100" r="18" fill="#f59e0b" opacity="0.1"/>
+          <rect x="30" y="90" width="30" height="4" rx="2" fill="#f59e0b" opacity="0.2"/>
+          <rect x="140" y="130" width="30" height="4" rx="2" fill="#f59e0b" opacity="0.2"/>
+        </svg>
+        <div style="position:absolute;top:20px;right:20px;background:var(--clr-white);border-radius:12px;padding:12px 16px;box-shadow:var(--shadow-md);font-size:13px;font-weight:600;color:var(--clr-text)">
+          <span style="color:var(--clr-success)">✓</span> Profile Verified
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;background:var(--clr-white);border-radius:12px;padding:12px 16px;box-shadow:var(--shadow-md);font-size:13px;font-weight:600;color:var(--clr-text)">
+          <span style="color:var(--clr-primary)">+</span> New Job Alert
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="container" style="padding-top:var(--sp-10);border-top:1px solid var(--clr-border);margin-top:var(--sp-10)">
+    <div class="hero__stats">
+      <div class="hero__stat-item">
+        <div class="hero__stat-value" id="stat-live-jobs">—</div>
+        <div class="hero__stat-label" data-i18n="stats.live_jobs">Live Jobs</div>
+      </div>
+      <div style="width:1px;height:40px;background:var(--clr-border)"></div>
+      <div class="hero__stat-item">
+        <div class="hero__stat-value" id="stat-companies">—</div>
+        <div class="hero__stat-label" data-i18n="stats.companies">Companies</div>
+      </div>
+      <div style="width:1px;height:40px;background:var(--clr-border)"></div>
+      <div class="hero__stat-item">
+        <div class="hero__stat-value" id="stat-candidates">—</div>
+        <div class="hero__stat-label" data-i18n="stats.candidates">Candidates</div>
+      </div>
+      <div style="width:1px;height:40px;background:var(--clr-border)"></div>
+      <div class="hero__stat-item">
+        <div class="hero__stat-value" id="stat-new-jobs">—</div>
+        <div class="hero__stat-label" data-i18n="stats.new_jobs">New Jobs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Most Popular Vacancies ─────────────────────────── -->
+<section class="section--sm" style="background:var(--clr-bg)">
+  <div class="container">
+    <h2 style="margin-bottom:var(--sp-8)" data-i18n="home.vacancies_title">Most Popular Vacancies</h2>
+    <div class="grid-4" style="gap:var(--sp-3)">
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-primary);font-weight:500;padding:8px 0;display:block">UI/UX Designer</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Software Engineer</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Product Manager</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Data Analyst</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Marketing Manager</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Front-End Developer</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">DevOps Engineer</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">HR Specialist</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Financial Analyst</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Project Manager</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Content Writer</a>
+      <a href="pages/jobs/browse-jobs.html" style="font-size:14px;color:var(--clr-text-2);padding:8px 0;display:block">Customer Success Manager</a>
+    </div>
+    <div style="margin-top:var(--sp-5)">
+      <a href="pages/jobs/browse-jobs.html" class="btn btn-outline">See All Popular Vacancies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── How Shaghlni Works ─────────────────────────────── -->
+<section class="section how-it-works">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 data-i18n="home.how_title">How Shaghlni Works</h2>
+      <p style="max-width:500px;margin:var(--sp-3) auto 0">Job searching is an easy process with our platform. Just follow the steps below to find your perfect job.</p>
+    </div>
+    <div class="grid-4" style="gap:var(--sp-6)">
+      <div class="step-card">
+        <div class="step-card__icon" style="background:var(--clr-primary-light);border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-4);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="step-card__title">Create account</div>
+        <p class="step-card__desc">Sign up in minutes as a candidate or employer. It's completely free to get started.</p>
+      </div>
+      <div class="step-card" style="background:var(--clr-primary);border-radius:var(--r-lg);padding:var(--sp-6) var(--sp-4);">
+        <div class="step-card__icon" style="background:rgba(255,255,255,.2);border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-4);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <div class="step-card__title" style="color:#fff">Upload resume</div>
+        <p class="step-card__desc" style="color:rgba(255,255,255,.75)">Build your profile and upload your resume so employers can discover your skills and experience.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__icon" style="background:var(--clr-primary-light);border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-4);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="step-card__title">Find suitable job</div>
+        <p class="step-card__desc">Browse thousands of listings and filter by location, category, salary, and job type.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__icon" style="background:var(--clr-primary-light);border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-4);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <div class="step-card__title">Apply job</div>
+        <p class="step-card__desc">Submit your application with one click. Track the status of every application from your dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Popular Category ───────────────────────────────── -->
+<section class="section--sm" style="background:var(--clr-bg)">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title" data-i18n="home.categories_title">Popular Categories</h2>
+      <a href="pages/jobs/browse-jobs.html" class="section-head__link">See All Categories →</a>
+    </div>
+    <div class="grid-4" style="gap:var(--sp-4)" id="categories-grid">
+      <a href="pages/jobs/browse-jobs.html?industry=Design" class="category-card" data-category="Design">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r="0.5" fill="currentColor"/><circle cx="17.5" cy="10.5" r="0.5" fill="currentColor"/><circle cx="8.5" cy="7.5" r="0.5" fill="currentColor"/><circle cx="6.5" cy="12.5" r="0.5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        </div>
+        <div><div class="category-card__name">Graphics &amp; Design</div><div class="category-card__count" id="cat-count-design">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=IT" class="category-card" data-category="IT">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div><div class="category-card__name">Code &amp; Programming</div><div class="category-card__count" id="cat-count-it">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=Marketing" class="category-card" data-category="Marketing">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div><div class="category-card__name">Digital Marketing</div><div class="category-card__count" id="cat-count-marketing">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=Sales" class="category-card" data-category="Sales">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <div><div class="category-card__name">Video &amp; Animation</div><div class="category-card__count" id="cat-count-sales">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=HR" class="category-card" data-category="HR">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div><div class="category-card__name">Human Resources</div><div class="category-card__count" id="cat-count-hr">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=Finance" class="category-card" data-category="Finance">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div><div class="category-card__name">Account &amp; Finance</div><div class="category-card__count" id="cat-count-finance">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=Service" class="category-card" data-category="Service">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div><div class="category-card__name">Health &amp; Care</div><div class="category-card__count" id="cat-count-service">— open positions</div></div>
+      </a>
+      <a href="pages/jobs/browse-jobs.html?industry=Engineering" class="category-card" data-category="Engineering">
+        <div class="category-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div><div class="category-card__name">Data &amp; Science</div><div class="category-card__count" id="cat-count-engineering">— open positions</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Featured Jobs ──────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title" data-i18n="home.featured_title">Featured Jobs</h2>
+      <a href="pages/jobs/browse-jobs.html" class="section-head__link">See All Jobs →</a>
+    </div>
+    <div class="grid-3" id="featured-jobs-grid" style="gap:var(--sp-5)">
+      <!-- Skeleton placeholders until API loads -->
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:60%;margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:80%"></div><div class="skeleton skeleton-text" style="width:50%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:60%;margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:80%"></div><div class="skeleton skeleton-text" style="width:50%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:60%;margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:80%"></div><div class="skeleton skeleton-text" style="width:50%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:60%;margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:80%"></div><div class="skeleton skeleton-text" style="width:50%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:60%;margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:80%"></div><div class="skeleton skeleton-text" style="width:50%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:60%;margin-bottom:8px"></div><div class="skeleton skeleton-text" style="width:80%"></div><div class="skeleton skeleton-text" style="width:50%;margin-top:8px"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Top Companies ──────────────────────────────────── -->
+<section class="section--sm" style="background:var(--clr-bg)" id="top-companies-section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title" data-i18n="home.companies_title">Top Companies</h2>
+      <a href="pages/employers/browse-employers.html" class="section-head__link">See All Companies →</a>
+    </div>
+    <div id="top-companies-grid" style="display:flex;gap:var(--sp-4);flex-wrap:wrap">
+      <!-- Skeleton placeholders -->
+      <div class="skeleton" style="flex:1;min-width:160px;height:110px;border-radius:var(--r-md)"></div>
+      <div class="skeleton" style="flex:1;min-width:160px;height:110px;border-radius:var(--r-md)"></div>
+      <div class="skeleton" style="flex:1;min-width:160px;height:110px;border-radius:var(--r-md)"></div>
+      <div class="skeleton" style="flex:1;min-width:160px;height:110px;border-radius:var(--r-md)"></div>
+      <div class="skeleton" style="flex:1;min-width:160px;height:110px;border-radius:var(--r-md)"></div>
+      <div class="skeleton" style="flex:1;min-width:160px;height:110px;border-radius:var(--r-md)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Testimonials ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 data-i18n="home.testimonials_title">What Our Users Say</h2>
+      <p style="max-width:500px;margin:var(--sp-3) auto 0">Thousands of candidates and employers trust Shaghlni to make the right connections.</p>
+    </div>
+    <div class="grid-3" style="gap:var(--sp-6)">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Shaghlni has completely changed the way I look for work. The platform is intuitive, the job matches are spot on, and I landed my dream job within 2 weeks of signing up."</p>
+        <div class="testimonial-card__author">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--clr-primary-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--clr-primary)">A</div>
+          <div><div class="testimonial-card__author-name">Alex Morgan</div><div class="testimonial-card__author-role">Product Designer, San Francisco</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card" style="border-color:var(--clr-primary);box-shadow:var(--shadow-md)">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"I've tried many job platforms before, but Shaghlni stands out. The candidate search tools are powerful and I've hired 5 great team members through this platform."</p>
+        <div class="testimonial-card__author">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--clr-success-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--clr-success)">S</div>
+          <div><div class="testimonial-card__author-name">Sara Nguyen</div><div class="testimonial-card__author-role">Hiring Manager, Austin TX</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"The recommended jobs feature is like having a personal recruiter. Every suggestion was relevant to my skills and experience. Absolutely love using Shaghlni."</p>
+        <div class="testimonial-card__author">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--clr-orange-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--clr-orange)">J</div>
+          <div><div class="testimonial-card__author-name">James Okafor</div><div class="testimonial-card__author-role">Software Engineer, New York</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA Section ────────────────────────────────────── -->
+<section class="section--sm">
+  <div class="container">
+    <div class="cta-grid">
+      <div class="cta-panel cta-panel--light" style="background:url('') center/cover,var(--clr-bg);">
+        <p class="cta-panel__eyebrow" style="color:var(--clr-text-3)">Are You Looking For a Job?</p>
+        <h2 class="cta-panel__title">Become a Candidate</h2>
+        <a href="pages/auth/register.html" class="btn btn-primary btn-lg">Register Now
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="cta-panel cta-panel--dark">
+        <p class="cta-panel__eyebrow" style="color:rgba(255,255,255,.7)">Are You Looking For Employees?</p>
+        <h2 class="cta-panel__title">Become an Employer</h2>
+        <a href="pages/auth/register.html" class="btn btn-white btn-lg">Register Now
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="footer__brand" aria-label="Shaghlni">
+          <img src="assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--foot">
+        </a>
+        <p class="footer__desc">Find your dream job or discover the best candidates with Shaghlni.</p>
+      </div>
+      <div>
+        <h4 class="footer__col-title" data-i18n="footer.quick_link">Quick Link</h4>
+        <ul class="footer__links">
+          <li><a href="pages/static/about.html" class="footer__link">About</a></li>
+          <li><a href="pages/static/contact.html" class="footer__link">Contact</a></li>
+          <li><a href="pages/employer-dashboard/plans-billing.html" class="footer__link">Pricing</a></li>
+          <li><a href="pages/static/blog.html" class="footer__link">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title" data-i18n="footer.candidate">Candidate</h4>
+        <ul class="footer__links">
+          <li><a href="pages/jobs/browse-jobs.html" class="footer__link">Browse Jobs</a></li>
+          <li><a href="pages/employers/browse-employers.html" class="footer__link">Browse Employers</a></li>
+          <li><a href="pages/candidate-dashboard/dashboard.html" class="footer__link">Candidate Dashboard</a></li>
+          <li><a href="pages/candidate-dashboard/favorite-jobs.html" class="footer__link">Saved Jobs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title" data-i18n="footer.employers">Employers</h4>
+        <ul class="footer__links">
+          <li><a href="pages/employer-dashboard/post-job.html" class="footer__link">Post a Job</a></li>
+          <li><a href="pages/candidates/browse-candidates.html" class="footer__link">Browse Candidates</a></li>
+          <li><a href="pages/employer-dashboard/dashboard.html" class="footer__link">Employers Dashboard</a></li>
+          <li><a href="pages/employer-dashboard/applications.html" class="footer__link">Applications</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title" data-i18n="footer.support">Support</h4>
+        <ul class="footer__links">
+          <li><a href="pages/static/faqs.html" class="footer__link">Faqs</a></li>
+          <li><a href="pages/static/terms.html" class="footer__link">Privacy Policy</a></li>
+          <li><a href="pages/static/terms.html" class="footer__link">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Shaghlni. All rights reserved.</p>
+      <div class="footer__socials">
+        <a href="#" class="footer__social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="footer__social-link" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/navbar-auth.js"></script>
+<script src="js/components.js"></script>
+<script>
+  // Load featured jobs from API
+  document.addEventListener('DOMContentLoaded', async () => {
+    const grid = document.getElementById('featured-jobs-grid');
+    try {
+      const result = await API.getJobs();
+      const jobs = (result.data || []).slice(0, 6).map(j => ({
+        ...j,
+        title: j.title || j.job_title || '',
+        type: j.type || j.job_type || '',
+        company: j.company || j.company_name || '',
+        company_logo: j.company_logo || j.logo_path || null,
+        salary: j.salary || (j.salary_min_jod && j.salary_max_jod
+          ? `${parseFloat(j.salary_min_jod).toLocaleString()} \u2013 ${parseFloat(j.salary_max_jod).toLocaleString()} JOD`
+          : 'Negotiable'),
+      }));
+      if (jobs.length) {
+        grid.innerHTML = jobs.map(job => renderJobCard(job)).join('');
+        // Re-init bookmarks
+        document.querySelectorAll('.job-card__bookmark').forEach(btn => {
+          btn.addEventListener('click', (e) => { e.stopPropagation(); btn.classList.toggle('active'); });
+        });
+      }
+    } catch (e) {
+      // Keep skeleton placeholders visible on API error
+    }
+
+    // Top Companies — fetch real employers
+    (async () => {
+      const grid = document.getElementById('top-companies-grid');
+      const avatarColors = ['#f59e0b','#d97706','#b45309','#92400e','#78350f','#a16207'];
+      try {
+        const res = await API.getEmployers({ limit: 6 });
+        const list = Array.isArray(res) ? res : (res.data || []);
+        if (list.length) {
+          grid.innerHTML = list.slice(0, 6).map((e, i) => {
+            const name    = e.company_name || e.name || 'Company';
+            const initial = name.charAt(0).toUpperCase();
+            const sector  = e.industry || e.sector || '';
+            const id      = e.id || e.employer_id || '';
+            const href    = id ? `pages/employers/employer-detail.html?id=${id}` : 'pages/employers/browse-employers.html';
+            const color   = avatarColors[i % avatarColors.length];
+            return `<a href="${href}" style="flex:1;min-width:160px;background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-md);padding:var(--sp-5);text-align:center;text-decoration:none;transition:border-color .2s,box-shadow .2s">
+              <div style="width:48px;height:48px;border-radius:var(--r-md);background:${color};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;margin:0 auto var(--sp-3)">${initial}</div>
+              <div style="font-size:14px;font-weight:600;color:var(--clr-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${name}</div>
+              ${sector ? `<div style="font-size:12px;color:var(--clr-text-3)">${sector}</div>` : ''}
+            </a>`;
+          }).join('');
+        } else {
+          document.getElementById('top-companies-section').style.display = 'none';
+        }
+      } catch {
+        document.getElementById('top-companies-section').style.display = 'none';
+      }
+    })();
+
+    // Hero search button
+    document.getElementById('hero-search-btn').addEventListener('click', (e) => {
+      const keyword = document.getElementById('hero-keyword').value;
+      const location = document.getElementById('hero-location').value;
+      const params = new URLSearchParams();
+      if (keyword) params.set('q', keyword);
+      if (location) params.set('location', location);
+      const qs = params.toString();
+      window.location.href = `pages/jobs/browse-jobs.html${qs ? '?' + qs : ''}`;
+      e.preventDefault();
+    });
+  });
+</script>
+
+<script>
+  /* ── Live stats counter ──────────────────────────────── */
+  (async () => {
+    function countUp(el, target, duration = 1400) {
+      if (!el) return;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        // ease-out cubic
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = Math.round(ease * target);
+        el.textContent = val.toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    try {
+      const res  = await fetch(API_BASE + '/stats');
+      const json = await res.json();
+      // API wraps response: { success, data: { live_jobs, companies, ... } }
+      const s = (json.success ? json.data : json) || {};
+
+      if (!s.live_jobs && !s.companies && !s.candidates) {
+        // All zeros — hide the stats row rather than show fake zeros
+        const statsRow = document.querySelector('.hero__stats');
+        if (statsRow) statsRow.style.display = 'none';
+      } else {
+        countUp(document.getElementById('stat-live-jobs'),  s.live_jobs  || 0);
+        countUp(document.getElementById('stat-companies'),  s.companies  || 0);
+        countUp(document.getElementById('stat-candidates'), s.candidates || 0);
+        countUp(document.getElementById('stat-new-jobs'),   s.new_jobs   || s.job_categories || 0);
+      }
+    } catch {
+      // API unreachable — hide stats row rather than show zeros
+      const statsRow = document.querySelector('.hero__stats');
+      if (statsRow) statsRow.style.display = 'none';
+    }
+
+    // Load real category counts
+    try {
+      const catRes  = await fetch(API_BASE + '/categories');
+      const catData = await catRes.json();
+      const map = {
+        'cat-count-design':      catData['Design']      || 0,
+        'cat-count-it':          catData['IT']          || 0,
+        'cat-count-marketing':   catData['Marketing']   || 0,
+        'cat-count-sales':       catData['Sales']       || 0,
+        'cat-count-hr':          catData['HR']          || 0,
+        'cat-count-finance':     catData['Finance']     || 0,
+        'cat-count-service':     catData['Service']     || 0,
+        'cat-count-engineering': catData['Engineering'] || 0,
+      };
+      Object.entries(map).forEach(([id, count]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = count.toLocaleString() + ' open positions';
+      });
+    } catch {
+      document.querySelectorAll('.category-card__count').forEach(el => {
+        el.textContent = 'See open positions';
+      });
+    }
+  })();
+</script>
+</body>
+</html>

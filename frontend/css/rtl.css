@@ -1,0 +1,362 @@
+/* ============================================================
+   rtl.css — Jobpilot Right-To-Left Layout Overrides
+   Applied when <html dir="rtl"> is set by i18n.js (Arabic)
+   Uses [dir="rtl"] selector to override LTR defaults cleanly.
+   Arabic font activated via body.font-arabic set in i18n.js.
+   ============================================================ */
+
+/* ── Arabic font ─────────────────────────────────────────────
+   Cairo is a clean Arabic typeface from Google Fonts.
+   The import is conditional — only loaded when needed.    */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+body.font-arabic,
+body.font-arabic * {
+  font-family: 'Cairo', 'Segoe UI', sans-serif;
+  letter-spacing: 0;          /* Arabic doesn't use letter-spacing */
+}
+
+/* ── Base document direction ─────────────────────────────────*/
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* ── Navbar (public) ─────────────────────────────────────────*/
+[dir="rtl"] .navbar-public__inner {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .navbar-public__nav {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .navbar-mobile-menu {
+  text-align: right;
+}
+[dir="rtl"] .global-controls {
+  flex-direction: row-reverse;
+}
+
+/* ── Navbar (dashboard) ──────────────────────────────────────*/
+[dir="rtl"] .navbar-dashboard__top-inner,
+[dir="rtl"] .navbar-dashboard__bottom-inner {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .navbar-dashboard__top-links {
+  flex-direction: row-reverse;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────*/
+[dir="rtl"] .sidebar {
+  left:  auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--clr-border);
+}
+/* Mobile RTL sidebar slide from right */
+@media (max-width: 768px) {
+  [dir="rtl"] .sidebar {
+    right: -100%;
+    left: auto;
+    transition: right var(--ease-slow);
+  }
+  [dir="rtl"] .sidebar.open {
+    right: 0;
+  }
+}
+[dir="rtl"] .dashboard-layout {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .sidebar__nav-link {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+[dir="rtl"] .sidebar__nav-link .sidebar__icon {
+  margin-right: 0;
+  margin-left: var(--sp-3);
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────────*/
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .breadcrumb__sep {
+  transform: scaleX(-1);
+}
+
+/* ── Hero ────────────────────────────────────────────────────*/
+[dir="rtl"] .hero__inner {
+  direction: rtl;
+}
+[dir="rtl"] .hero__content {
+  text-align: right;
+}
+[dir="rtl"] .hero__search {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .hero__search-field {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .hero__eyebrow {
+  flex-direction: row-reverse;
+}
+
+/* ── Search bar ──────────────────────────────────────────────*/
+[dir="rtl"] .search-bar {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .search-bar__field {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .search-icon {
+  left:  auto;
+  right: var(--sp-3);
+}
+[dir="rtl"] .search-bar__input {
+  padding-left:  var(--sp-3);
+  padding-right: calc(var(--sp-3) + 24px);
+  text-align: right;
+}
+
+/* ── Filter panel ────────────────────────────────────────────*/
+[dir="rtl"] .filter-group__header {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .form-check {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+[dir="rtl"] .form-check input[type="checkbox"],
+[dir="rtl"] .form-check input[type="radio"] {
+  margin-right: 0;
+  margin-left: var(--sp-2);
+}
+
+/* ── Cards ───────────────────────────────────────────────────*/
+[dir="rtl"] .job-card {
+  text-align: right;
+}
+[dir="rtl"] .job-card__header {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .job-card__meta {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+[dir="rtl"] .job-card__footer {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .employer-card {
+  text-align: right;
+}
+[dir="rtl"] .candidate-card {
+  text-align: right;
+}
+[dir="rtl"] .stat-card {
+  text-align: right;
+}
+[dir="rtl"] .stat-card__icon {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* ── Forms ───────────────────────────────────────────────────*/
+[dir="rtl"] .form-label {
+  text-align: right;
+  display: block;
+}
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-select,
+[dir="rtl"] .form-textarea {
+  text-align: right;
+  direction: rtl;
+}
+[dir="rtl"] .input-group {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .input-icon {
+  left:  auto;
+  right: var(--sp-3);
+}
+[dir="rtl"] .form-input.has-icon {
+  padding-left:  var(--sp-3);
+  padding-right: calc(var(--sp-3) + 20px);
+}
+[dir="rtl"] .form-grid {
+  direction: rtl;
+}
+
+/* ── Buttons & actions ───────────────────────────────────────*/
+[dir="rtl"] .btn svg:first-child {
+  margin-right: 0;
+  margin-left:  var(--sp-2);
+  order: 1;
+}
+[dir="rtl"] .navbar-public__actions {
+  flex-direction: row-reverse;
+}
+
+/* ── Tabs ────────────────────────────────────────────────────*/
+[dir="rtl"] .tab-list {
+  flex-direction: row-reverse;
+}
+
+/* ── Dropdown ────────────────────────────────────────────────*/
+[dir="rtl"] .dropdown__menu--right {
+  right: auto;
+  left:  0;
+}
+
+/* ── Modal ───────────────────────────────────────────────────*/
+[dir="rtl"] .modal {
+  text-align: right;
+}
+[dir="rtl"] .modal__header {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .modal__close {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* ── Data tables ─────────────────────────────────────────────*/
+[dir="rtl"] .data-table {
+  direction: rtl;
+}
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td {
+  text-align: right;
+}
+
+/* ── Pagination ──────────────────────────────────────────────*/
+[dir="rtl"] .pagination {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .pagination .prev svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .pagination .next svg {
+  transform: scaleX(-1);
+}
+
+/* ── Toast notifications ─────────────────────────────────────*/
+[dir="rtl"] #toast-container {
+  left:  var(--sp-6);
+  right: auto;
+}
+[dir="rtl"] .toast {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ── Quick search ────────────────────────────────────────────*/
+[dir="rtl"] .quick-search-modal {
+  text-align: right;
+}
+[dir="rtl"] .qs-input {
+  text-align: right;
+  direction: rtl;
+  padding-right: 44px;
+  padding-left:  var(--sp-4);
+}
+[dir="rtl"] .qs-search-icon {
+  left:  auto;
+  right: var(--sp-4);
+}
+[dir="rtl"] .qs-result-item {
+  flex-direction: row-reverse;
+}
+
+/* ── Notification panel ──────────────────────────────────────*/
+[dir="rtl"] .notif-panel {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .notif-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+[dir="rtl"] .notif-panel__header {
+  flex-direction: row-reverse;
+}
+
+/* ── Sidebar progress bar ────────────────────────────────────*/
+[dir="rtl"] .profile-progress__bar {
+  direction: ltr; /* progress bar fill always left-to-right visually */
+}
+
+/* ── Footer ──────────────────────────────────────────────────*/
+[dir="rtl"] .footer__grid,
+[dir="rtl"] .site-footer__grid {
+  direction: rtl;
+}
+[dir="rtl"] .footer__links,
+[dir="rtl"] .site-footer__link-col ul {
+  text-align: right;
+}
+[dir="rtl"] .footer__bottom,
+[dir="rtl"] .site-footer__bottom {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .footer__brand,
+[dir="rtl"] .site-footer__brand {
+  flex-direction: row-reverse;
+}
+
+/* ── Global controls (injected lang + theme toggles) ─────────*/
+[dir="rtl"] .lang-switcher {
+  flex-direction: row-reverse;
+}
+
+/* ── Hero stats bar ──────────────────────────────────────────*/
+[dir="rtl"] .hero__stats {
+  flex-direction: row-reverse;
+}
+
+/* ── Section headers ─────────────────────────────────────────*/
+[dir="rtl"] .section-header {
+  text-align: right;
+}
+[dir="rtl"] .section-header--center {
+  text-align: center;
+}
+
+/* ── Listing layout ──────────────────────────────────────────*/
+[dir="rtl"] .listing-layout {
+  flex-direction: row-reverse;
+}
+
+/* ── RTL-aware margin/padding utilities ──────────────────────*/
+[dir="rtl"] .ml-auto { margin-left: unset; margin-right: auto; }
+[dir="rtl"] .mr-auto { margin-right: unset; margin-left: auto; }
+
+/* ── Prevent double-reversing icons that should stay LTR ─────*/
+[dir="rtl"] .icon-no-flip {
+  transform: none !important;
+}
+
+/* ── Dynamic employer card (browse-employers renderCard) ─────*/
+[dir="rtl"] .employer-card__name,
+[dir="rtl"] .employer-card__industry {
+  text-align: center;   /* logo is centered, keep text centered too */
+}
+
+/* ── Favorite jobs card inline flex ──────────────────────────*/
+[dir="rtl"] #favorites-grid > div {
+  flex-direction: row-reverse;
+}
+
+/* ── Application table row inline flex ───────────────────────*/
+[dir="rtl"] .data-table td > div[style*="display:flex"] {
+  flex-direction: row-reverse;
+}
+
+/* ── Employer card stats row (inline flex) ───────────────────*/
+[dir="rtl"] .employer-card > div:last-child,
+[dir="rtl"] .employer-card > a > div:last-child {
+  flex-direction: row-reverse;
+}
+
+/* ── Browse employers search bar icon RTL ────────────────────*/
+/* inset-inline-start handles this natively; this is a fallback */
+[dir="rtl"] #employer-search {
+  text-align: right;
+}

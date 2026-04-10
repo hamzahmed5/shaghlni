@@ -1,0 +1,23 @@
+# DB credentials
+backend/config/local.php
+
+# Large dataset CSV files
+database/*.csv
+*.csv
+
+# Uploaded files
+backend/storage/uploads/cvs/
+backend/storage/uploads/logos/
+backend/storage/uploads/photos/
+
+# Python cache
+__pycache__/
+*.pyc
+*.npy
+
+# Logs
+backend/logs/*.log
+
+# OS
+.DS_Store
+Thumbs.db

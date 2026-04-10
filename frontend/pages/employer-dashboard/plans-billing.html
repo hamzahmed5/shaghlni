@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plans & Billing — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<header class="navbar-dashboard">
+  <div class="navbar-dashboard__top">
+    <div class="container navbar-dashboard__top-inner">
+      <nav class="navbar-dashboard__top-links">
+        <a href="../../index.html" data-i18n="nav.home">Home</a>
+        <a href="../jobs/browse-jobs.html" data-i18n="nav.find_job">Find Job</a>
+        <a href="../employers/browse-employers.html" data-i18n="nav.find_employers">Employers</a>
+        <a href="../candidates/browse-candidates.html" data-i18n="nav.candidates">Candidates</a>
+        <a href="../static/blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="../static/about.html" data-i18n="nav.about">About</a>
+      </nav>
+      <div class="navbar-dashboard__top-right"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-dashboard__bottom">
+    <div class="container navbar-dashboard__bottom-inner">
+      <a href="../../index.html" class="navbar-dashboard__brand">
+        <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+        
+      </a>
+      <div class="navbar-dashboard__search">
+        <div class="navbar-dashboard__search-input">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Job title, keyword, company">
+        </div>
+        <button class="btn btn-primary" onclick="window.location.href='../jobs/browse-jobs.html'">Find Job</button>
+      </div>
+      <div class="navbar-dashboard__actions">
+        <button class="navbar-dashboard__icon-btn" aria-label="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
+        <div class="dropdown" id="user-dropdown">
+          <button class="navbar-dashboard__avatar dropdown__trigger" id="nav-user-avatar" aria-haspopup="true">TC</button>
+          <div class="dropdown__menu dropdown__menu--right" role="menu">
+            <a class="dropdown__item" href="settings-personal.html">Settings</a>
+            <div class="dropdown__divider"></div>
+            <a class="dropdown__item" href="../auth/login.html" data-logout>Sign Out</a>
+          </div>
+        </div>
+        <button class="navbar-dashboard__hamburger" id="mobile-menu-btn" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="dashboard-layout">
+  <aside class="sidebar sidebar-employer">
+    <div class="sidebar__header">
+      <div class="sidebar__avatar" id="sidebar-avatar">TC</div>
+      <div>
+        <p class="sidebar__name" id="sidebar-name">TechCorp Inc.</p>
+        <p class="sidebar__role">Employer</p>
+      </div>
+    </div>
+    <nav class="sidebar__nav">
+      <a href="dashboard.html" class="sidebar__link" data-i18n="dash.nav.overview"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Overview</a>
+      <a href="settings-profile.html" class="sidebar__link" data-i18n="dash.nav.settings"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Company Profile</a>
+      <a href="post-job.html" class="sidebar__link" data-i18n="dash.nav.post_job"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Post a Job</a>
+      <a href="my-jobs.html" class="sidebar__link" data-i18n="dash.nav.my_jobs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>My Jobs</a>
+      <a href="saved-candidates.html" class="sidebar__link" data-i18n="dash.nav.saved_candidates"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>Saved Candidates</a>
+      <a href="plans-billing.html" class="sidebar__link active" data-i18n="dash.nav.plans"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Plans & Billing</a>
+      <a href="applications.html" class="sidebar__link" data-i18n="dash.nav.applications"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>All Applications</a>
+      <a href="settings-personal.html" class="sidebar__link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+    </nav>
+    <button class="sidebar__logout" data-logout data-i18n="nav.sign_out">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Log-out
+    </button>
+  </aside>
+
+  <main class="dashboard-main">
+    <div style="margin-bottom:var(--sp-8)">
+      <h1 style="font-size:var(--text-2xl);font-weight:700;color:var(--clr-text)">Plans & Billing</h1>
+      <p style="color:var(--clr-text-3);margin-top:4px">Manage your subscription and billing history.</p>
+    </div>
+
+    <!-- Current Plan Banner -->
+    <div style="background:var(--clr-primary-light);border:1px solid #C5D8F0;border-radius:var(--r-lg);padding:var(--sp-6);margin-bottom:var(--sp-8);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-4)">
+      <div>
+        <p style="font-size:12px;color:var(--clr-primary);font-weight:500;margin-bottom:4px">CURRENT PLAN</p>
+        <h2 style="font-size:var(--text-xl);font-weight:700;color:var(--clr-text)">Free Plan</h2>
+        <p style="font-size:13px;color:var(--clr-text-3);margin-top:4px">3 job posts · 50 candidate views · Renews: Never (free forever)</p>
+      </div>
+      <div style="text-align:right">
+        <p style="font-size:13px;color:var(--clr-text-3);margin-bottom:var(--sp-2)">Usage this month</p>
+        <p style="font-size:13px;color:var(--clr-text)">Job Posts: <strong>2 / 3</strong></p>
+        <p style="font-size:13px;color:var(--clr-text)">Candidate Views: <strong>10 / 50</strong></p>
+      </div>
+    </div>
+
+    <!-- Pricing Plans -->
+    <h2 style="font-size:var(--text-lg);font-weight:600;color:var(--clr-text);margin-bottom:var(--sp-5)">Available Plans</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-bottom:var(--sp-10)">
+
+      <!-- Free -->
+      <div style="background:var(--clr-white);border:2px solid var(--clr-primary);border-radius:var(--r-lg);padding:var(--sp-6);position:relative">
+        <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--clr-primary);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px">CURRENT PLAN</span>
+        <h3 style="font-size:var(--text-xl);font-weight:700;color:var(--clr-text);margin-bottom:4px">Free</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--clr-text);margin-bottom:var(--sp-5)">$0<span style="font-size:14px;font-weight:400;color:var(--clr-text-3)">/month</span></p>
+        <ul style="list-style:none;padding:0;margin:0 0 var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3)">
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3 Job Posts</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>50 Candidate Views</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Basic Analytics</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Email Support</li>
+        </ul>
+        <button class="btn btn-outline-primary" style="width:100%" disabled>Current Plan</button>
+      </div>
+
+      <!-- Pro -->
+      <div style="background:var(--clr-white);border:2px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-6);position:relative">
+        <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--clr-primary);color:#000;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px">MOST POPULAR</span>
+        <h3 style="font-size:var(--text-xl);font-weight:700;color:var(--clr-text);margin-bottom:4px">Pro</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--clr-text);margin-bottom:var(--sp-5)">$49<span style="font-size:14px;font-weight:400;color:var(--clr-text-3)">/month</span></p>
+        <ul style="list-style:none;padding:0;margin:0 0 var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3)">
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>25 Job Posts</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>500 Candidate Views</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Advanced Analytics</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority Support</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Featured Listings</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%" onclick="Toast.info('Plan upgrade requires payment integration.')">Upgrade to Pro</button>
+      </div>
+
+      <!-- Enterprise -->
+      <div style="background:var(--clr-white);border:2px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-6)">
+        <h3 style="font-size:var(--text-xl);font-weight:700;color:var(--clr-text);margin-bottom:4px">Enterprise</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--clr-text);margin-bottom:var(--sp-5)">$149<span style="font-size:14px;font-weight:400;color:var(--clr-text-3)">/month</span></p>
+        <ul style="list-style:none;padding:0;margin:0 0 var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3)">
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Unlimited Job Posts</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Unlimited Views</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom Analytics</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Dedicated Support</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>API Access</li>
+          <li style="display:flex;align-items:center;gap:var(--sp-2);font-size:13px;color:var(--clr-text-2)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Team Accounts</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%" onclick="Toast.info('Plan upgrade requires payment integration.')">Upgrade to Enterprise</button>
+      </div>
+    </div>
+
+    <!-- Billing History -->
+    <h2 style="font-size:var(--text-lg);font-weight:600;color:var(--clr-text);margin-bottom:var(--sp-5)">Billing History</h2>
+    <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);overflow-x:auto;margin-bottom:var(--sp-5)">
+      <table style="width:100%;border-collapse:collapse;min-width:480px">
+        <thead><tr style="background:var(--clr-bg)">
+          <th style="text-align:left;padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3);font-weight:500">Invoice</th>
+          <th style="text-align:left;padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3);font-weight:500">Date</th>
+          <th style="text-align:left;padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3);font-weight:500">Plan</th>
+          <th style="text-align:left;padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3);font-weight:500">Amount</th>
+          <th style="text-align:left;padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3);font-weight:500">Status</th>
+          <th style="text-align:left;padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-3);font-weight:500">Download</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--clr-border)">
+            <td style="padding:var(--sp-4) var(--sp-5);font-size:14px;color:var(--clr-text)">INV-001</td>
+            <td style="padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-2)">2026-01-01</td>
+            <td style="padding:var(--sp-4) var(--sp-5);font-size:13px;color:var(--clr-text-2)">Free</td>
+            <td style="padding:var(--sp-4) var(--sp-5);font-size:14px;font-weight:600;color:var(--clr-text)">$0.00</td>
+            <td style="padding:var(--sp-4) var(--sp-5)"><span style="font-size:12px;font-weight:500;padding:3px 10px;border-radius:20px;background:#E8F9EE;color:#0BA02C">Paid</span></td>
+            <td style="padding:var(--sp-4) var(--sp-5)"><button class="btn btn-ghost btn-sm" onclick="Toast.info('Invoice download is not connected yet.')">Download</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:12px;color:var(--clr-text-3);text-align:center">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Showing demo data — no billing endpoints are in the API spec yet.
+    </p>
+  </main>
+</div>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src='../../js/auth-guard.js'></script>
+<script>
+(async () => {
+
+  // Auth guard
+  const user = await Session.requireLogin('employer');
+  if (user) {
+    const initials = user.name ? user.name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase() : 'TC';
+    document.getElementById('nav-user-avatar').textContent = initials;
+    document.getElementById('sidebar-avatar').textContent = initials;
+    document.getElementById('sidebar-name').textContent = user.name || 'TechCorp Inc.';
+  }
+})();
+})();
+</script>
+</body>
+</html>

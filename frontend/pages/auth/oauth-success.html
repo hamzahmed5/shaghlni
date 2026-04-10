@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signing in — Shaghlni</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a1628;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    .box {
+      text-align: center;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,.15);
+      border-top-color: #f59e0b;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    p { margin: 0; font-size: 15px; opacity: .7; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="spinner"></div>
+    <p>Signing you in…</p>
+  </div>
+
+  <script>
+    (async function () {
+      // Compute base paths dynamically (same logic as api.js)
+      const _path = window.location.pathname;
+      const _pagesIdx = _path.lastIndexOf('/pages/');
+      const FRONTEND_BASE = _pagesIdx !== -1 ? _path.substring(0, _pagesIdx) : _path.replace(/\/[^/]*$/, '');
+      const API_BASE = FRONTEND_BASE.replace(/\/frontend$/, '') + '/backend/api';
+
+      try {
+        const res  = await fetch(API_BASE + '/auth/me', { credentials: 'include' });
+        const json = await res.json();
+
+        if (!json.success || !json.data) {
+          throw new Error('Session not found');
+        }
+
+        // Mirror what pages.js does on normal login
+        localStorage.setItem('jp_user', JSON.stringify(json.data));
+
+        // Redirect based on role
+        const role = json.data.role || 'candidate';
+        const dest = role === 'employer'
+          ? FRONTEND_BASE + '/pages/employer-dashboard/dashboard.html'
+          : FRONTEND_BASE + '/pages/candidate-dashboard/dashboard.html';
+
+        window.location.replace(dest);
+      } catch (err) {
+        // Something went wrong — send back to login with an error hint
+        window.location.replace(
+          FRONTEND_BASE + '/pages/auth/login.html?oauth_error=' +
+          encodeURIComponent('Sign-in failed. Please try again.')
+        );
+      }
+    })();
+  </script>
+</body>
+</html>

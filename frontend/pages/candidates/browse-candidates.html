@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Candidates — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- ─── Public Navbar ──────────────────────────────────── -->
+<nav class="navbar-public">
+  <div class="navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <ul class="navbar-public__nav">
+      <li><a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a></li>
+      <li><a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a></li>
+      <li><a href="browse-candidates.html" class="navbar-public__link active" data-i18n="nav.candidates">Candidates</a></li>
+      <li><a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+    <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a>
+    <a href="browse-candidates.html" class="navbar-public__link active" data-i18n="nav.candidates">Candidates</a>
+    <a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-header__title" data-i18n="page.candidates">Candidates</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html" class="breadcrumb__item" data-i18n="bc.home">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__item breadcrumb__item--active" data-i18n="cand.find_candidates">Find Candidates</span>
+    </nav>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main>
+  <div class="container" style="padding:var(--sp-10) var(--sp-4)">
+    <div class="listing-layout">
+
+      <!-- LEFT: Filters -->
+      <aside class="filter-panel">
+        <div class="filter-panel__section">
+          <h4 class="filter-panel__title" data-i18n="ui.search">Search</h4>
+          <div style="position:relative">
+            <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--clr-text-3)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="candidate-search" class="form-input has-icon" style="padding-left:36px" placeholder="Name or title" data-i18n-placeholder="cand.search_ph">
+          </div>
+        </div>
+
+        <div class="filter-panel__section">
+          <h4 class="filter-panel__title" data-i18n="filter.category">Category</h4>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-2)">
+            <label class="checkbox-label"><input type="checkbox" name="category" value="design" class="filter-cat"> <span data-i18n="cat.design">Design</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="development" class="filter-cat"> <span data-i18n="cat.development">Development</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="marketing" class="filter-cat"> <span data-i18n="cat.marketing">Marketing</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="finance" class="filter-cat"> <span data-i18n="cat.finance">Finance</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="healthcare" class="filter-cat"> <span data-i18n="cat.healthcare">Healthcare</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="writing" class="filter-cat"> <span data-i18n="cat.writing">Writing</span></label>
+          </div>
+        </div>
+
+        <div class="filter-panel__section">
+          <h4 class="filter-panel__title" data-i18n="filter.experience">Experience Level</h4>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-2)">
+            <label class="checkbox-label"><input type="radio" name="exp" value="" checked class="filter-exp"> <span data-i18n="filter.any_level">Any Level</span></label>
+            <label class="checkbox-label"><input type="radio" name="exp" value="entry" class="filter-exp"> <span data-i18n="filter.entry">Entry Level</span></label>
+            <label class="checkbox-label"><input type="radio" name="exp" value="mid" class="filter-exp"> <span data-i18n="filter.mid">Mid Level</span></label>
+            <label class="checkbox-label"><input type="radio" name="exp" value="senior" class="filter-exp"> <span data-i18n="filter.senior">Senior Level</span></label>
+          </div>
+        </div>
+
+        <div class="filter-panel__section">
+          <h4 class="filter-panel__title" data-i18n="job.location">Location</h4>
+          <div style="position:relative">
+            <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--clr-text-3)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <input type="text" id="location-filter" class="form-input has-icon" style="padding-left:36px" placeholder="City or country" data-i18n-placeholder="cand.location_ph">
+          </div>
+        </div>
+
+        <button class="btn btn-outline-primary btn-block" id="clear-filters-btn" style="margin-top:var(--sp-2)" data-i18n="filter.clear">Clear Filters</button>
+      </aside>
+
+      <!-- RIGHT: Candidates grid -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-5)">
+          <p id="result-count" style="font-size:14px;color:var(--clr-text-3)">Showing candidates</p>
+          <select class="form-input form-select" id="sort-filter" style="width:auto">
+            <option value="latest" data-i18n="filter.latest">Latest</option>
+            <option value="az" data-i18n="cand.sort_az">A – Z</option>
+          </select>
+        </div>
+
+        <div id="candidates-grid" class="grid-3" style="gap:var(--sp-5);margin-bottom:var(--sp-8)">
+          <div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>
+          <div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>
+        </div>
+
+        <div id="pagination-container" style="display:flex;justify-content:center"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <a href="../../index.html" class="site-footer__brand">
+          <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+          <span>Shaghlni</span>
+        </a>
+        <p class="site-footer__tagline">Find your dream job or the best candidates with Shaghlni.</p>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.quick_link">Quick Link</h4>
+        <ul>
+          <li><a href="../static/about.html">About</a></li>
+          <li><a href="../static/contact.html">Contact</a></li>
+          <li><a href="../static/blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.candidate">Candidate</h4>
+        <ul>
+          <li><a href="../jobs/browse-jobs.html">Browse Jobs</a></li>
+          <li><a href="browse-candidates.html">Browse Candidates</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.employers">Employers</h4>
+        <ul>
+          <li><a href="../employers/browse-employers.html">Browse Employers</a></li>
+          <li><a href="../auth/login.html">Post a Job</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="../static/faqs.html">Faqs</a></li>
+          <li><a href="../static/terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 Shaghlni. All rights reserved.</p>
+      <div class="site-footer__socials">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script src="../../js/components.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  const avatarColors = ['#f59e0b','#0BA02C','#FF6550','#d97706','#E05151','#F59E0B'];
+  function getColor(i) { return avatarColors[i % avatarColors.length]; }
+
+  function initials(name) {
+    return (name || '?').split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  }
+
+  function renderCard(c, idx) {
+    const color = getColor(idx);
+    const init = initials(c.full_name);
+    const skills = (c.primary_skills || '').split(',').map(s => s.trim()).filter(Boolean).slice(0, 3);
+    return `
+      <a href="single-candidate.html?id=${c.id}" style="text-decoration:none">
+        <div class="candidate-card" style="text-align:center;padding:var(--sp-6);flex-direction:column;align-items:center">
+          <div class="candidate-card__avatar-placeholder" style="background:${color}20;color:${color};margin:0 auto var(--sp-3);font-size:22px;font-weight:700">${init}</div>
+          <p class="candidate-card__name" style="text-align:center;margin-bottom:4px">${c.full_name || ''}</p>
+          <p class="candidate-card__role" style="color:var(--clr-primary);font-weight:500;margin-bottom:4px">${c.headline || c.preferred_job_field || ''}</p>
+          <p style="font-size:13px;color:var(--clr-text-3);margin-bottom:var(--sp-4);display:flex;align-items:center;justify-content:center;gap:4px">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${c.location || ''}
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">
+            ${skills.map(s => `<span style="font-size:11px;padding:3px 10px;border-radius:20px;background:var(--clr-bg);color:var(--clr-text-2);border:1px solid var(--clr-border)">${s}</span>`).join('')}
+          </div>
+        </div>
+      </a>`;
+  }
+
+  let currentPage = 1;
+  let totalPages = 1;
+  const PAGE_SIZE = 12;
+
+  function getFilters() {
+    return {
+      search: document.getElementById('candidate-search').value.trim(),
+      location: document.getElementById('location-filter').value.trim(),
+      skills: '',
+    };
+  }
+
+  async function load(page) {
+    currentPage = page;
+    const filters = getFilters();
+    const qs = new URLSearchParams({ page, ...filters });
+    const grid = document.getElementById('candidates-grid');
+    grid.innerHTML = '<div class="skeleton" style="height:260px;border-radius:var(--r-lg)"></div>'.repeat(6);
+
+    const _t = key => (typeof I18n !== 'undefined') ? I18n.t(key) : key;
+
+    let result;
+    try {
+      result = await apiFetch('/candidates?' + qs);
+    } catch (e) {
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><h3>${_t('cand.failed')}</h3></div>`;
+      return;
+    }
+
+    const payload    = result.data || {};
+    const candidates = payload.data       || [];
+    const pagination = payload.pagination || {};
+    totalPages = pagination.total_pages || 1;
+
+    const count = pagination.total || candidates.length;
+    document.getElementById('result-count').textContent = _t('cand.showing').replace('{n}', count);
+
+    if (!candidates.length) {
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><h3>${_t('cand.no_candidates')}</h3><p>${_t('cand.no_candidates_sub')}</p></div>`;
+    } else {
+      grid.innerHTML = candidates.map((c, i) => renderCard(c, i)).join('');
+    }
+
+    renderPagination(document.getElementById('pagination-container'), totalPages, currentPage, p => { load(p); window.scrollTo(0, 0); });
+  }
+
+  document.getElementById('candidate-search').addEventListener('input', debounce(() => load(1), 400));
+  document.getElementById('location-filter').addEventListener('input', debounce(() => load(1), 400));
+  document.getElementById('sort-filter').addEventListener('change', () => load(1));
+  document.getElementById('clear-filters-btn').addEventListener('click', () => {
+    document.getElementById('candidate-search').value = '';
+    document.getElementById('location-filter').value = '';
+    load(1);
+  });
+
+  load(1);
+</script>
+</body>
+</html>

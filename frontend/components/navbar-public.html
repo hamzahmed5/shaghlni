@@ -1,0 +1,54 @@
+<!-- ============================================================
+     navbar-public.html — Public Navbar (logged-out state)
+     Injected via components.js into pages that include
+     <div id="navbar-public-mount"></div>
+     ============================================================ -->
+<nav class="navbar-public" id="navbar-public" role="navigation" aria-label="Main navigation">
+  <div class="navbar-public__inner">
+
+    <!-- Brand -->
+    <a href="/jobpilot/frontend/index.html" class="navbar-public__brand" aria-label="Shaghlni home">
+      <img src="/jobpilot/frontend/assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+    </a>
+
+    <!-- Primary nav links -->
+    <ul class="navbar-public__nav" role="list">
+      <li><a href="/jobpilot/frontend/index.html" class="navbar-public__link">Home</a></li>
+      <li><a href="/jobpilot/frontend/pages/jobs/browse-jobs.html" class="navbar-public__link">Find Job</a></li>
+      <li><a href="/jobpilot/frontend/pages/employers/browse-employers.html" class="navbar-public__link">Find Employers</a></li>
+      <li><a href="/jobpilot/frontend/pages/candidates/browse-candidates.html" class="navbar-public__link">Candidates</a></li>
+      <li><a href="/jobpilot/frontend/pages/static/blog.html" class="navbar-public__link">Blog</a></li>
+      <li><a href="/jobpilot/frontend/pages/static/about.html" class="navbar-public__link">About</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="navbar-public__actions">
+      <a href="/jobpilot/frontend/pages/auth/login.html" class="btn btn-outline">Sign In</a>
+      <a href="/jobpilot/frontend/pages/employer-dashboard/post-job.html" class="btn btn-primary">Post A Job</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="navbar-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-mobile">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div><!-- /.navbar-public__inner -->
+
+  <!-- Mobile drawer -->
+  <div class="navbar-mobile-menu" id="navbar-mobile" role="menu">
+    <a href="/jobpilot/frontend/index.html" class="navbar-public__link" role="menuitem">Home</a>
+    <a href="/jobpilot/frontend/pages/jobs/browse-jobs.html" class="navbar-public__link" role="menuitem">Find Job</a>
+    <a href="/jobpilot/frontend/pages/employers/browse-employers.html" class="navbar-public__link" role="menuitem">Find Employers</a>
+    <a href="/jobpilot/frontend/pages/candidates/browse-candidates.html" class="navbar-public__link" role="menuitem">Candidates</a>
+    <a href="/jobpilot/frontend/pages/static/blog.html" class="navbar-public__link" role="menuitem">Blog</a>
+    <a href="/jobpilot/frontend/pages/static/about.html" class="navbar-public__link" role="menuitem">About</a>
+    <div class="navbar-public__actions">
+      <a href="/jobpilot/frontend/pages/auth/login.html" class="btn btn-outline btn-block">Sign In</a>
+      <a href="/jobpilot/frontend/pages/employer-dashboard/post-job.html" class="btn btn-primary btn-block">Post A Job</a>
+    </div>
+  </div>
+</nav>

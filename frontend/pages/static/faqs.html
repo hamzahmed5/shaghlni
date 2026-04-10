@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- PUBLIC NAVBAR -->
+<header class="navbar-public">
+  <div class="container navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <nav class="navbar-public__nav">
+      <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+      <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+      <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Employers</a>
+      <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+      <a href="blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+      <a href="about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    </nav>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu" id="mobile-drawer">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+    <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Employers</a>
+    <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-header__title">Frequently Asked Questions</h1>
+    <nav class="breadcrumb">
+      <a href="../../index.html" class="breadcrumb__item">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__item breadcrumb__item--active">FAQs</span>
+    </nav>
+  </div>
+</section>
+
+<!-- FAQ CONTENT -->
+<section style="padding:var(--sp-16) 0">
+  <div class="container" style="max-width:800px">
+
+    <!-- Category Tabs -->
+    <div style="display:flex;gap:var(--sp-2);justify-content:center;flex-wrap:wrap;margin-bottom:var(--sp-10)">
+      <button class="btn btn-primary faq-tab" data-tab="general">General</button>
+      <button class="btn btn-ghost faq-tab" data-tab="candidate">For Candidates</button>
+      <button class="btn btn-ghost faq-tab" data-tab="employer">For Employers</button>
+    </div>
+
+    <!-- General FAQs -->
+    <div id="tab-general" class="faq-group accordion">
+      <div class="accordion__item">
+        <button class="accordion__trigger">What is Shaghlni? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Shaghlni is a job platform that connects talented professionals with the companies that need them. We offer tools for job seekers to find and apply for jobs, and for employers to post jobs and find the best candidates.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">Is Shaghlni free to use? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Shaghlni is free for job seekers. You can create a profile, upload your resume, search and apply for jobs at no cost. Employers have access to free and premium plans depending on their hiring needs.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">How do I create an account? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Click the "Sign Up" button on the homepage and choose whether you're a candidate or an employer. Fill in your basic details, verify your email, and your account will be ready to use immediately.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">How do I reset my password? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Click "Forgot Password" on the sign-in page and enter your registered email. We'll send you a secure link to reset your password. The link expires after 24 hours.</p></div>
+      </div>
+    </div>
+
+    <!-- Candidate FAQs -->
+    <div id="tab-candidate" class="faq-group accordion" style="display:none">
+      <div class="accordion__item">
+        <button class="accordion__trigger">How do I apply for a job? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Find a job you're interested in and click the "Apply Now" button on the job detail page. You'll be prompted to sign in or create an account, then you can submit your application with your resume and cover letter.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">Can I apply to multiple jobs at once? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Yes! You can apply to as many jobs as you like. Your profile and resume will be attached to each application automatically, though you can customize your cover letter for each role.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">How can I track my applications? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Your dashboard has an "Applied Jobs" section that shows all your applications and their current status — Pending, Under Review, Interview, Accepted, or Rejected.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">Can I set up job alerts? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Yes, you can create job alerts based on your preferred keywords, location, and job type. You'll receive email notifications whenever new matching jobs are posted.</p></div>
+      </div>
+    </div>
+
+    <!-- Employer FAQs -->
+    <div id="tab-employer" class="faq-group accordion" style="display:none">
+      <div class="accordion__item">
+        <button class="accordion__trigger">How do I post a job? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Sign in to your employer account and click "Post a Job" in your dashboard. Fill in the job details, requirements, and salary range. Your job will go live immediately after submission.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">How long do job listings stay active? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Standard job listings stay active for 30 days. Premium listings are active for 60 days and receive additional exposure in search results and featured placements on the homepage.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">How can I manage applications? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Your employer dashboard has an "All Applications" section where you can view, filter, and manage all incoming applications. You can update the status of each application and contact candidates directly.</p></div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__trigger">Can I edit or delete a job posting? <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion__content"><p>Yes, you can edit or delete any active job posting from your "My Jobs" dashboard. Changes take effect immediately. Deleting a job will close it to new applications but preserve existing ones.</p></div>
+      </div>
+    </div>
+
+    <!-- Still have questions CTA -->
+    <div style="margin-top:var(--sp-12);text-align:center;background:var(--clr-bg);border-radius:var(--r-xl);padding:var(--sp-8)">
+      <h3 style="font-size:var(--text-xl);font-weight:600;margin-bottom:var(--sp-3)">Still have questions?</h3>
+      <p style="color:var(--clr-text-2);margin-bottom:var(--sp-6)">Can't find the answer you're looking for? Please contact our support team.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact Support →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <a href="../../index.html" class="site-footer__brand">
+          <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+          <span>Shaghlni</span>
+        </a>
+        <p class="site-footer__tagline">Find your dream job or the best candidates with Shaghlni.</p>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.quick_link">Quick Link</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.candidate">Candidate</h4>
+        <ul><li><a href="../jobs/browse-jobs.html">Browse Jobs</a></li></ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.employers">Employers</h4>
+        <ul><li><a href="../employers/browse-employers.html">Browse Employers</a></li></ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="faqs.html">Faqs</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 Shaghlni. All rights reserved.</p>
+      <div class="site-footer__socials">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script>
+  document.querySelectorAll('.faq-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.faq-group').forEach(g => g.style.display = 'none');
+      document.getElementById('tab-' + tab).style.display = 'block';
+      document.querySelectorAll('.faq-tab').forEach(b => b.className = 'btn btn-ghost faq-tab');
+      btn.className = 'btn btn-primary faq-tab';
+    });
+  });
+</script>
+</body>
+</html>

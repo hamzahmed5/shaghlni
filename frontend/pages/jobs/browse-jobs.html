@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Job — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- ─── Public Navbar ──────────────────────────────────── -->
+<nav class="navbar-public">
+  <div class="navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <ul class="navbar-public__nav">
+      <li><a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="browse-jobs.html" class="navbar-public__link active" data-i18n="nav.find_job">Find Job</a></li>
+      <li><a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a></li>
+      <li><a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a></li>
+      <li><a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="browse-jobs.html" class="navbar-public__link active" data-i18n="nav.find_job">Find Job</a>
+    <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Find Employers</a>
+    <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="../static/blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="../static/about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Page header ────────────────────────────────────── -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-header__title">Find Job</h1>
+    <nav class="breadcrumb">
+      <a href="../../index.html" class="breadcrumb__item">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__item breadcrumb__item--active">Find Job</span>
+    </nav>
+  </div>
+</section>
+
+<!-- ─── Search Bar ─────────────────────────────────────── -->
+<div class="container" style="padding-top:var(--sp-6)">
+  <div class="search-bar" style="margin-bottom:var(--sp-4)">
+    <div class="search-bar__field" style="flex:2">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-bar__input" id="job-search" placeholder="Search by: Job Title, Position, Keyword...">
+    </div>
+    <div class="search-bar__divider"></div>
+    <div class="search-bar__field" style="flex:1.2">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <input type="text" class="search-bar__input" id="job-location" placeholder="City, state or zip code">
+    </div>
+    <div style="display:flex;align-items:center;gap:var(--sp-2);padding:6px">
+      <button class="btn btn-outline-neutral btn-sm" id="filter-toggle-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filters
+      </button>
+      <button class="btn btn-primary search-bar__btn" id="search-jobs-btn">Find Job</button>
+    </div>
+  </div>
+
+  <!-- Popular searches -->
+  <div style="display:flex;align-items:center;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-6);font-size:14px">
+    <span style="color:var(--clr-text-3)">Popular Searches:</span>
+    <div class="tag-list">
+      <button class="tag active">Front-end</button>
+      <button class="tag">Back-end</button>
+      <button class="tag">Development</button>
+      <button class="tag">PHP</button>
+      <button class="tag">Laravel</button>
+      <button class="tag">Bootstrap</button>
+      <button class="tag">Developer</button>
+      <button class="tag">Team Lead</button>
+      <button class="tag">Product Testing</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Main listing layout ────────────────────────────── -->
+<div class="listing-layout" style="padding-top:0">
+  <!-- Filter panel -->
+  <aside class="filter-panel" id="filter-panel">
+    <div class="filter-group">
+      <div class="filter-group__header">
+        <span class="filter-group__title">Job Type</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-group__body">
+        <label class="form-check"><input type="checkbox" data-type="Full Time"> <span class="form-check-label">Full Time <span class="type-count" data-type="Full Time"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-type="Part-time"> <span class="form-check-label">Part Time <span class="type-count" data-type="Part-time"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-type="Freelance"> <span class="form-check-label">Freelance <span class="type-count" data-type="Freelance"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-type="Temporary"> <span class="form-check-label">Temporary <span class="type-count" data-type="Temporary"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-type="Contract"> <span class="form-check-label">Contract <span class="type-count" data-type="Contract"></span></span></label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group__header">
+        <span class="filter-group__title">Salary Range</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-group__body">
+        <div style="font-size:13px;color:var(--clr-text-3);margin-bottom:8px" id="salary-display">All salaries</div>
+        <input type="range" min="500" max="120000" value="120000" step="500" style="width:100%;accent-color:var(--clr-primary)" id="salary-range">
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group__header">
+        <span class="filter-group__title">Experience Level</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-group__body">
+        <label class="form-check"><input type="radio" name="exp"> <span class="form-check-label">Entry Level</span></label>
+        <label class="form-check"><input type="radio" name="exp"> <span class="form-check-label">Mid Level</span></label>
+        <label class="form-check"><input type="radio" name="exp"> <span class="form-check-label">Senior Level</span></label>
+        <label class="form-check"><input type="radio" name="exp"> <span class="form-check-label">Director</span></label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group__header">
+        <span class="filter-group__title">Job Category</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-group__body" id="category-filter-list">
+        <label class="form-check"><input type="checkbox" data-industry="Design"> <span class="form-check-label">Design <span class="type-count" data-industry="Design"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="IT"> <span class="form-check-label">IT &amp; Programming <span class="type-count" data-industry="IT"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="Marketing"> <span class="form-check-label">Marketing <span class="type-count" data-industry="Marketing"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="Finance"> <span class="form-check-label">Finance <span class="type-count" data-industry="Finance"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="Engineering"> <span class="form-check-label">Engineering <span class="type-count" data-industry="Engineering"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="HR"> <span class="form-check-label">Human Resources <span class="type-count" data-industry="HR"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="Sales"> <span class="form-check-label">Sales <span class="type-count" data-industry="Sales"></span></span></label>
+        <label class="form-check"><input type="checkbox" data-industry="Education"> <span class="form-check-label">Education <span class="type-count" data-industry="Education"></span></span></label>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-block" id="apply-filters-btn">Apply Filters</button>
+  </aside>
+
+  <!-- Jobs grid -->
+  <div class="listing-content">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-5)">
+      <p style="font-size:14px;color:var(--clr-text-3)"><strong id="jobs-count" style="color:var(--clr-text)">0</strong> Jobs found</p>
+      <select class="form-select" style="width:auto;padding:8px 32px 8px 12px;font-size:14px" id="sort-select">
+        <option value="newest">Latest</option>
+        <option value="oldest">Oldest</option>
+        <option value="salary_desc">Salary High to Low</option>
+        <option value="salary_asc">Salary Low to High</option>
+      </select>
+    </div>
+    <div class="grid-3" id="jobs-grid" style="gap:var(--sp-4)">
+      <!-- Skeleton loaders -->
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:55%"></div><div class="skeleton skeleton-text" style="width:75%;margin-top:8px"></div><div class="skeleton skeleton-text" style="width:45%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:55%"></div><div class="skeleton skeleton-text" style="width:75%;margin-top:8px"></div><div class="skeleton skeleton-text" style="width:45%;margin-top:8px"></div></div>
+      <div class="job-card"><div class="skeleton skeleton-title" style="width:55%"></div><div class="skeleton skeleton-text" style="width:75%;margin-top:8px"></div><div class="skeleton skeleton-text" style="width:45%;margin-top:8px"></div></div>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</div>
+
+<!-- ─── Footer ─────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <a href="../../index.html" class="footer__brand"><img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav"></a>
+        <p class="footer__desc">Find your dream job or discover the best candidates with Shaghlni.</p>
+      </div>
+      <div><h4 class="footer__col-title" data-i18n="footer.quick_link">Quick Link</h4><ul class="footer__links"><li><a href="../static/about.html" class="footer__link">About</a></li><li><a href="../static/contact.html" class="footer__link">Contact</a></li><li><a href="../static/blog.html" class="footer__link">Blog</a></li></ul></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.candidate">Candidate</h4><ul class="footer__links"><li><a href="browse-jobs.html" class="footer__link">Browse Jobs</a></li><li><a href="../employers/browse-employers.html" class="footer__link">Browse Employers</a></li><li><a href="../candidate-dashboard/dashboard.html" class="footer__link">Candidate Dashboard</a></li><li><a href="../candidate-dashboard/favorite-jobs.html" class="footer__link">Saved Jobs</a></li></ul></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.employers">Employers</h4><ul class="footer__links"><li><a href="../employer-dashboard/post-job.html" class="footer__link">Post a Job</a></li><li><a href="../candidates/browse-candidates.html" class="footer__link">Browse Candidates</a></li><li><a href="../employer-dashboard/dashboard.html" class="footer__link">Employers Dashboard</a></li></ul></div>
+      <div><h4 class="footer__col-title" data-i18n="footer.support">Support</h4><ul class="footer__links"><li><a href="../static/faqs.html" class="footer__link">Faqs</a></li><li><a href="../static/terms.html" class="footer__link">Terms &amp; Conditions</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copy">&copy; 2026 Shaghlni. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script src="../../js/components.js"></script>
+<script src="../../js/pages.js"></script>
+</body>
+</html>

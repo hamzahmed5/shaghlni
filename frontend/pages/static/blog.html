@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>!function(){var t=localStorage.getItem('jp_theme')||'light';document.documentElement.setAttribute('data-theme',t);}();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Shaghlni</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/pages.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/dark-mode.css">
+  <link rel="stylesheet" href="../../css/rtl.css">
+  <link rel="stylesheet" href="../../css/motion.css">
+</head>
+<body>
+
+<!-- PUBLIC NAVBAR -->
+<header class="navbar-public">
+  <div class="container navbar-public__inner">
+    <a href="../../index.html" class="navbar-public__brand">
+      <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+      
+    </a>
+    <nav class="navbar-public__nav">
+      <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+      <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+      <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Employers</a>
+      <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+      <a href="blog.html" class="navbar-public__link active" data-i18n="nav.blog">Blog</a>
+      <a href="about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    </nav>
+    <div class="navbar-public__actions"><div class="global-controls"><div class="lang-switcher"><button class="lang-btn" data-lang-btn="en">EN</button><button class="lang-btn" data-lang-btn="ar">AR</button></div></div>
+      <a href="../auth/login.html" class="btn btn-outline" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navbar-mobile-menu" id="mobile-drawer">
+    <a href="../../index.html" class="navbar-public__link" data-i18n="nav.home">Home</a>
+    <a href="../jobs/browse-jobs.html" class="navbar-public__link" data-i18n="nav.find_job">Find Job</a>
+    <a href="../employers/browse-employers.html" class="navbar-public__link" data-i18n="nav.find_employers">Employers</a>
+    <a href="../candidates/browse-candidates.html" class="navbar-public__link" data-i18n="nav.candidates">Candidates</a>
+    <a href="blog.html" class="navbar-public__link" data-i18n="nav.blog">Blog</a>
+    <a href="about.html" class="navbar-public__link" data-i18n="nav.about">About</a>
+    <div class="navbar-public__actions">
+      <a href="../auth/login.html" class="btn btn-outline btn-block" data-i18n="nav.sign_in">Sign In</a>
+      <a href="../auth/register.html" class="btn btn-primary btn-block" data-i18n="nav.post_job">Post A Job</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-header__title">News & Blog</h1>
+    <nav class="breadcrumb">
+      <a href="../../index.html" class="breadcrumb__item">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__item breadcrumb__item--active">Blog</span>
+    </nav>
+  </div>
+</section>
+
+<!-- BLOG CONTENT -->
+<main style="padding:var(--sp-12) 0">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--sp-10);align-items:start">
+
+      <!-- Posts Grid -->
+      <div>
+        <!-- Category Tabs -->
+        <div style="display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-8)">
+          <button class="btn btn-primary btn-sm blog-cat-btn" data-cat="">All Posts</button>
+          <button class="btn btn-ghost btn-sm blog-cat-btn" data-cat="career">Career Tips</button>
+          <button class="btn btn-ghost btn-sm blog-cat-btn" data-cat="hiring">Hiring</button>
+          <button class="btn btn-ghost btn-sm blog-cat-btn" data-cat="industry">Industry News</button>
+          <button class="btn btn-ghost btn-sm blog-cat-btn" data-cat="salary">Salary Guide</button>
+        </div>
+
+        <div id="blog-grid" class="grid-2" style="gap:var(--sp-6);margin-bottom:var(--sp-8)"></div>
+        <div id="pagination-container" style="display:flex;justify-content:center"></div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <!-- Search -->
+        <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-5);margin-bottom:var(--sp-5)">
+          <h4 style="font-weight:600;margin-bottom:var(--sp-3)">Search Posts</h4>
+          <div style="position:relative">
+            <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--clr-text-3)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="blog-search" class="form-input" style="padding-left:36px" placeholder="Search articles...">
+          </div>
+        </div>
+
+        <!-- Popular Tags -->
+        <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-5);margin-bottom:var(--sp-5)">
+          <h4 style="font-weight:600;margin-bottom:var(--sp-3)">Popular Tags</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--sp-2)">
+            <span class="tag">Career</span><span class="tag">Resume</span><span class="tag">Interview</span>
+            <span class="tag">Remote Work</span><span class="tag">Salary</span><span class="tag">Tech Jobs</span>
+            <span class="tag">Design</span><span class="tag">Startup</span>
+          </div>
+        </div>
+
+        <!-- Recent Posts -->
+        <div style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--sp-5)">
+          <h4 style="font-weight:600;margin-bottom:var(--sp-4)">Recent Posts</h4>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-4)">
+            <a href="single-blog.html?id=1" style="display:flex;gap:var(--sp-3);text-decoration:none">
+              <div style="width:60px;height:60px;border-radius:var(--r-md);background:var(--clr-primary-light);flex-shrink:0;display:flex;align-items:center;justify-content:center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <h5 style="font-size:13px;font-weight:600;color:var(--clr-text);line-height:1.4;margin-bottom:4px">10 Tips to Nail Your Next Job Interview</h5>
+                <p style="font-size:12px;color:var(--clr-text-3)">Jan 15, 2024</p>
+              </div>
+            </a>
+            <a href="single-blog.html?id=2" style="display:flex;gap:var(--sp-3);text-decoration:none">
+              <div style="width:60px;height:60px;border-radius:var(--r-md);background:#0BA02C20;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0BA02C" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <h5 style="font-size:13px;font-weight:600;color:var(--clr-text);line-height:1.4;margin-bottom:4px">How to Write a Standout Resume in 2024</h5>
+                <p style="font-size:12px;color:var(--clr-text-3)">Jan 10, 2024</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <a href="../../index.html" class="site-footer__brand">
+          <img src="../../assets/images/shaghlni-logo.jpeg" alt="Shaghlni" class="brand-logo-img brand-logo-img--nav">
+          <span>Shaghlni</span>
+        </a>
+        <p class="site-footer__tagline">Find your dream job or the best candidates with Shaghlni.</p>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.quick_link">Quick Link</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.candidate">Candidate</h4>
+        <ul><li><a href="../jobs/browse-jobs.html">Browse Jobs</a></li></ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.employers">Employers</h4>
+        <ul><li><a href="../employers/browse-employers.html">Browse Employers</a></li></ul>
+      </div>
+      <div class="site-footer__link-col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="faqs.html">Faqs</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 Shaghlni. All rights reserved.</p>
+      <div class="site-footer__socials">
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="../../js/api.js"></script>
+<script src="../../js/theme.js"></script>
+  <script src="../../js/i18n.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/navbar-auth.js"></script>
+<script>
+  const POSTS = [
+    { id: 1, title: '10 Tips to Nail Your Next Job Interview', excerpt: 'Preparing for a job interview can be nerve-wracking. Here are our top tips to help you walk in confident and walk out with an offer.', category: 'career', author: 'Robert Fox', date: 'Jan 15, 2024', readTime: '5 min read', color: '#f59e0b' },
+    { id: 2, title: 'How to Write a Standout Resume in 2024', excerpt: 'Your resume is your first impression. Learn how to craft a resume that gets noticed by recruiters and passes ATS filters.', category: 'career', author: 'Dianne Russell', date: 'Jan 10, 2024', readTime: '7 min read', color: '#0BA02C' },
+    { id: 3, title: 'Remote Work Trends: What Employers Want in 2024', excerpt: 'Remote work is here to stay. We analyze the latest trends and what top companies are looking for in remote candidates.', category: 'hiring', author: 'Floyd Miles', date: 'Jan 5, 2024', readTime: '6 min read', color: '#FF6550' },
+    { id: 4, title: 'Tech Salary Guide 2024: What You Should Be Earning', excerpt: 'A comprehensive breakdown of technology salaries by role, experience level, and location to help you negotiate better.', category: 'salary', author: 'Bessie Cooper', date: 'Dec 28, 2023', readTime: '10 min read', color: '#d97706' },
+    { id: 5, title: 'The Rise of AI in Hiring: What Candidates Need to Know', excerpt: 'Artificial intelligence is transforming the hiring process. Here\'s how to navigate AI-powered screening tools.', category: 'industry', author: 'Robert Fox', date: 'Dec 20, 2023', readTime: '8 min read', color: '#E05151' },
+    { id: 6, title: 'How to Build a Personal Brand That Attracts Recruiters', excerpt: 'In today\'s competitive market, a strong personal brand can set you apart. Here\'s how to build yours from scratch.', category: 'career', author: 'Dianne Russell', date: 'Dec 15, 2023', readTime: '6 min read', color: '#F59E0B' },
+  ];
+
+  const PAGE_SIZE = 4;
+  let currentPage = 1;
+  let filtered = [...POSTS];
+  let activeCat = '';
+
+  function renderPost(p) {
+    return `
+      <a href="single-blog.html?id=${p.id}" style="text-decoration:none">
+        <div class="blog-card" style="background:var(--clr-white);border:1px solid var(--clr-border);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div style="height:180px;background:${p.color}20;display:flex;align-items:center;justify-content:center">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="${p.color}" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div style="padding:var(--sp-5)">
+            <div style="display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-3)">
+              <span style="font-size:11px;font-weight:600;color:${p.color};background:${p.color}15;padding:3px 10px;border-radius:20px;text-transform:capitalize">${p.category}</span>
+              <span style="font-size:12px;color:var(--clr-text-3)">${p.readTime}</span>
+            </div>
+            <h3 style="font-size:15px;font-weight:600;color:var(--clr-text);line-height:1.4;margin-bottom:var(--sp-2)">${p.title}</h3>
+            <p style="font-size:13px;color:var(--clr-text-2);line-height:1.5;margin-bottom:var(--sp-4);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${p.excerpt}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--clr-text-3)">
+              <span>${p.author}</span>
+              <span>${p.date}</span>
+            </div>
+          </div>
+        </div>
+      </a>`;
+  }
+
+  function applyFilters() {
+    const q = document.getElementById('blog-search').value.toLowerCase();
+    filtered = POSTS.filter(p => {
+      const matchCat = !activeCat || p.category === activeCat;
+      const matchQ = !q || p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q);
+      return matchCat && matchQ;
+    });
+    currentPage = 1;
+    renderPage();
+  }
+
+  function renderPage() {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const items = filtered.slice(start, start + PAGE_SIZE);
+    const grid = document.getElementById('blog-grid');
+    grid.innerHTML = items.length ? items.map(renderPost).join('') : '<div class="empty-state" style="grid-column:1/-1"><h3>No posts found</h3></div>';
+    const total = Math.ceil(filtered.length / PAGE_SIZE);
+    renderPagination(document.getElementById('pagination-container'), total, currentPage, p => { currentPage = p; renderPage(); window.scrollTo(0,0); });
+  }
+
+  document.querySelectorAll('.blog-cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCat = btn.dataset.cat;
+      document.querySelectorAll('.blog-cat-btn').forEach(b => { b.className = 'btn btn-ghost btn-sm blog-cat-btn'; });
+      btn.className = 'btn btn-primary btn-sm blog-cat-btn';
+      applyFilters();
+    });
+  });
+
+  document.getElementById('blog-search').addEventListener('input', debounce(applyFilters, 300));
+
+  renderPage();
+</script>
+</body>
+</html>

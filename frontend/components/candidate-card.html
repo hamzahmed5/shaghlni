@@ -1,0 +1,54 @@
+<!-- ============================================================
+     candidate-card.html — Candidate Card Component (static demo)
+     Dynamically generated via renderCandidateCard() in components.js
+     ============================================================ -->
+<div class="candidate-card">
+  <!-- Avatar -->
+  <div class="candidate-card__avatar-placeholder" style="
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--clr-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--clr-primary);
+    flex-shrink: 0;
+  ">C</div>
+
+  <!-- Info -->
+  <div class="candidate-card__info">
+    <h3 class="candidate-card__name">Cody Fisher</h3>
+    <p class="candidate-card__role">Marketing Officer</p>
+    <div class="candidate-card__meta">
+      <span class="candidate-card__meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        New York
+      </span>
+      <span class="candidate-card__meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        </svg>
+        5 Years Experience
+      </span>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="candidate-card__actions">
+    <button class="candidate-card__bookmark" title="Save candidate" aria-label="Save candidate">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+    </button>
+    <a href="/jobpilot/frontend/pages/candidates/single-candidate.html?id=1" class="btn btn-outline btn-sm">
+      View Profile →
+    </a>
+  </div>
+</div>

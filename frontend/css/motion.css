@@ -1,0 +1,847 @@
+/* ============================================================
+   motion.css — UI Motion & Transition System
+   Jobpilot Job Platform
+   21st.dev–inspired: precise, purposeful, never decorative.
+   ============================================================ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   1. REDUCED MOTION — respect user preference first
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   2. KEYFRAMES — shared motion primitives
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Page/section entrance — soft upward fade */
+@keyframes enterUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sidebar / drawer entrance — slide from side */
+@keyframes enterRight {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Dropdown / popover reveal — scale from origin */
+@keyframes popoverReveal {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Modal backdrop */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal dialog */
+@keyframes dialogSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Card stagger — each child delays */
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Underline slide in (nav links) */
+@keyframes underlineSlide {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Shimmer skeleton */
+@keyframes shimmerWave {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* Toast entrance */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(calc(100% + 24px)); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Toast exit */
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(0); max-height: 80px; margin-bottom: 12px; }
+  to   { opacity: 0; transform: translateX(calc(100% + 24px)); max-height: 0; margin-bottom: 0; }
+}
+
+/* Tab indicator slide */
+@keyframes tabIndicator {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Pulse ring (notification dot) */
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70%  { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+/* Spin — loading indicators */
+@keyframes rotateSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Sidebar nav active indicator */
+@keyframes sidebarIndicator {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+/* Number count tick */
+@keyframes countTick {
+  0%   { transform: translateY(6px); opacity: 0; }
+  60%  { transform: translateY(-2px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   3. STRUCTURAL AUTO-ENTRANCE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Page header banner */
+.page-header {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+
+/* Dashboard main content area */
+.dashboard-main {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+  animation-delay: 40ms;
+}
+
+/* Filter panels slide in from right */
+.filter-panel,
+.sidebar-filter {
+  animation: enterRight var(--dur-enter) var(--ease-out-expo) both;
+  animation-delay: 60ms;
+}
+
+/* Hero section on homepage */
+.hero {
+  animation: enterUp var(--dur-slow) var(--ease-out-expo) both;
+}
+
+/* Profile alert enters above content */
+.profile-alert {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4-A. PAGE ENTRANCE — utility classes & stagger
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.page-enter {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+
+/* Stagger siblings when parent has .stagger-children */
+.stagger-children > * {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+.stagger-children > *:nth-child(1)  { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2)  { animation-delay: 40ms; }
+.stagger-children > *:nth-child(3)  { animation-delay: 80ms; }
+.stagger-children > *:nth-child(4)  { animation-delay: 120ms; }
+.stagger-children > *:nth-child(5)  { animation-delay: 160ms; }
+.stagger-children > *:nth-child(6)  { animation-delay: 200ms; }
+.stagger-children > *:nth-child(7)  { animation-delay: 240ms; }
+.stagger-children > *:nth-child(8)  { animation-delay: 280ms; }
+.stagger-children > *:nth-child(n+9){ animation-delay: 320ms; }
+
+/* Dashboard stat cards stagger */
+.stats-grid > .stat-card {
+  animation: cardEnter var(--dur-enter) var(--ease-out-expo) both;
+}
+.stats-grid > .stat-card:nth-child(1) { animation-delay: 0ms; }
+.stats-grid > .stat-card:nth-child(2) { animation-delay: 60ms; }
+.stats-grid > .stat-card:nth-child(3) { animation-delay: 120ms; }
+.stats-grid > .stat-card:nth-child(4) { animation-delay: 180ms; }
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4. NAVBAR MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Navbar scroll shadow — added via JS class */
+.navbar-public.scrolled,
+.navbar-dashboard.scrolled {
+  box-shadow: 0 1px 0 var(--glass-border), 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: box-shadow var(--dur-base) var(--ease-gentle);
+}
+
+/* Nav link — slide-underline on hover */
+.navbar-public__link {
+  position: relative;
+}
+.navbar-public__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  inset-inline-start: var(--sp-3);
+  inset-inline-end: var(--sp-3);
+  height: 2px;
+  background: var(--clr-primary);
+  border-radius: var(--r-full);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+.navbar-public__link:hover::after,
+.navbar-public__link.active::after {
+  transform: scaleX(1);
+}
+
+/* Dashboard nav link — same treatment */
+.navbar-dashboard__nav-link {
+  position: relative;
+}
+.navbar-dashboard__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  inset-inline-start: var(--sp-2);
+  inset-inline-end: var(--sp-2);
+  height: 2px;
+  background: var(--clr-primary);
+  border-radius: var(--r-full);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+.navbar-dashboard__nav-link:hover::after,
+.navbar-dashboard__nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Mobile menu drawer slide */
+.navbar-mobile-menu {
+  transform-origin: top center;
+  animation: none;
+}
+.navbar-mobile-menu.open {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   5. SIDEBAR MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Sidebar nav links — entrance stagger */
+.sidebar__nav .sidebar__link {
+  animation: enterRight var(--dur-enter) var(--ease-out-expo) both;
+}
+.sidebar__nav .sidebar__link:nth-child(1) { animation-delay: 30ms; }
+.sidebar__nav .sidebar__link:nth-child(2) { animation-delay: 60ms; }
+.sidebar__nav .sidebar__link:nth-child(3) { animation-delay: 90ms; }
+.sidebar__nav .sidebar__link:nth-child(4) { animation-delay: 120ms; }
+.sidebar__nav .sidebar__link:nth-child(5) { animation-delay: 150ms; }
+.sidebar__nav .sidebar__link:nth-child(6) { animation-delay: 180ms; }
+.sidebar__nav .sidebar__link:nth-child(7) { animation-delay: 210ms; }
+.sidebar__nav .sidebar__link:nth-child(8) { animation-delay: 240ms; }
+
+/* Sidebar link — smooth transition */
+.sidebar__link {
+  position: relative;
+  transition:
+    color var(--dur-fast) var(--ease-gentle),
+    background var(--dur-fast) var(--ease-gentle);
+}
+
+/* Active sidebar link — left indicator bar */
+.sidebar__link::before {
+  content: '';
+  position: absolute;
+  inset-block: 6px;
+  inset-inline-start: 0;
+  width: 3px;
+  background: var(--clr-primary);
+  border-radius: 0 var(--r-full) var(--r-full) 0;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+.sidebar__link.active::before {
+  transform: scaleY(1);
+}
+
+/* Sidebar link icon — color transition */
+.sidebar__link-icon {
+  transition: color var(--dur-fast) var(--ease-gentle),
+              transform var(--dur-fast) var(--ease-out-expo);
+}
+.sidebar__link:hover .sidebar__link-icon {
+  transform: translateX(1px);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   6. BUTTON MICRO-INTERACTIONS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Press scale — every .btn */
+.btn {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    border-color var(--dur-fast) var(--ease-gentle),
+    box-shadow var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-instant) var(--ease-gentle),
+    opacity var(--dur-fast) var(--ease-gentle);
+  will-change: transform;
+}
+.btn:active:not(:disabled) {
+  transform: scale(var(--scale-press));
+}
+
+/* Primary button glow ring on hover */
+.btn-primary:hover {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22), 0 2px 8px rgba(245, 158, 11, 0.25);
+}
+.btn-primary:active:not(:disabled) {
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.15);
+  transform: scale(var(--scale-press));
+}
+
+/* Arrow nudge — maintained from existing system */
+.btn .btn-arrow {
+  transition: transform var(--dur-fast) var(--ease-out-expo);
+}
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Icon-only buttons */
+.btn-icon {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-instant) var(--ease-gentle);
+}
+.btn-icon:hover {
+  transform: scale(1.06);
+}
+.btn-icon:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+/* Loading state — spinner inside button */
+.btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: rotateSpin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   7. CARD MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Job card — refined lift */
+.job-card {
+  transition:
+    border-color var(--dur-base) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-gentle),
+    transform var(--dur-base) var(--ease-out-quart);
+  will-change: transform;
+}
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(245, 158, 11, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.45);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+.job-card:active {
+  transform: translateY(-1px);
+}
+
+/* Employer card */
+.employer-card {
+  transition:
+    border-color var(--dur-base) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-gentle),
+    transform var(--dur-base) var(--ease-out-quart);
+  will-change: transform;
+}
+.employer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Candidate card */
+.candidate-card {
+  transition:
+    border-color var(--dur-base) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-gentle),
+    transform var(--dur-base) var(--ease-out-quart);
+  will-change: transform;
+}
+.candidate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Stat card — subtle pulse lift */
+.stat-card {
+  transition:
+    border-color var(--dur-base) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-gentle),
+    transform var(--dur-base) var(--ease-out-quart);
+  will-change: transform;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Bookmark button — pop scale on activate */
+.job-card__bookmark,
+.candidate-card__bookmark {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    border-color var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+.job-card__bookmark:hover,
+.candidate-card__bookmark:hover {
+  transform: scale(1.08);
+}
+.job-card__bookmark:active,
+.candidate-card__bookmark:active {
+  transform: scale(0.92);
+}
+.job-card__bookmark.active,
+.candidate-card__bookmark.active {
+  animation: countTick var(--dur-base) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   8. DROPDOWN MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.dropdown-menu,
+.dropdown__menu {
+  transition:
+    opacity var(--dur-exit) var(--ease-gentle),
+    transform var(--dur-exit) var(--ease-gentle);
+}
+.dropdown-menu.open,
+.dropdown__menu.open {
+  animation: popoverReveal var(--dur-enter) var(--ease-out-expo) both;
+  transition: none; /* let animation handle enter */
+}
+
+/* Dropdown items — stagger on open */
+.dropdown-menu.open .dropdown-item,
+.dropdown__menu.open .dropdown__item {
+  animation: enterUp var(--dur-base) var(--ease-out-expo) both;
+}
+.dropdown-menu.open .dropdown-item:nth-child(1),
+.dropdown__menu.open .dropdown__item:nth-child(1) { animation-delay: 30ms; }
+.dropdown-menu.open .dropdown-item:nth-child(2),
+.dropdown__menu.open .dropdown__item:nth-child(2) { animation-delay: 55ms; }
+.dropdown-menu.open .dropdown-item:nth-child(3),
+.dropdown__menu.open .dropdown__item:nth-child(3) { animation-delay: 80ms; }
+.dropdown-menu.open .dropdown-item:nth-child(4),
+.dropdown__menu.open .dropdown__item:nth-child(4) { animation-delay: 105ms; }
+.dropdown-menu.open .dropdown-item:nth-child(5),
+.dropdown__menu.open .dropdown__item:nth-child(5) { animation-delay: 130ms; }
+
+/* Dropdown item hover — slide tint in */
+.dropdown-item,
+.dropdown__item {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    padding-inline-start var(--dur-fast) var(--ease-out-quart);
+}
+.dropdown-item:hover,
+.dropdown__item:hover {
+  padding-inline-start: calc(var(--sp-4) + 3px);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   9. MODAL MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.modal-overlay {
+  transition: opacity var(--dur-exit) var(--ease-gentle);
+}
+.modal-overlay.open {
+  animation: overlayFadeIn var(--dur-base) var(--ease-gentle) both;
+  transition: none;
+}
+
+.modal {
+  transition: transform var(--dur-exit) var(--ease-gentle),
+              opacity var(--dur-exit) var(--ease-gentle);
+}
+.modal-overlay.open .modal {
+  animation: dialogSlideUp var(--dur-enter) var(--ease-out-expo) both;
+  transition: none;
+}
+
+.modal-close {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+.modal-close:hover {
+  transform: rotate(90deg) scale(1.05);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   10. FORM INTERACTIONS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Focus ring expansion */
+.form-input,
+.form-select,
+.form-textarea {
+  transition:
+    border-color var(--dur-fast) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-out-quart),
+    background var(--dur-fast) var(--ease-gentle);
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+/* Upload zone — lift on drag */
+.upload-zone {
+  transition:
+    border-color var(--dur-base) var(--ease-gentle),
+    background var(--dur-base) var(--ease-gentle),
+    transform var(--dur-base) var(--ease-out-quart);
+}
+.upload-zone:hover,
+.upload-zone.drag-over {
+  transform: scale(1.01);
+}
+
+/* Form groups — stagger in on page load */
+.form-stagger > .form-group {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+.form-stagger > .form-group:nth-child(1) { animation-delay: 40ms; }
+.form-stagger > .form-group:nth-child(2) { animation-delay: 80ms; }
+.form-stagger > .form-group:nth-child(3) { animation-delay: 120ms; }
+.form-stagger > .form-group:nth-child(4) { animation-delay: 160ms; }
+.form-stagger > .form-group:nth-child(5) { animation-delay: 200ms; }
+.form-stagger > .form-group:nth-child(6) { animation-delay: 240ms; }
+
+/* Checkbox check animation */
+.form-check {
+  transition: color var(--dur-fast) var(--ease-gentle);
+}
+.form-check input[type="checkbox"],
+.form-check input[type="radio"] {
+  transition: accent-color var(--dur-fast);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   11. SEARCH BAR MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.search-bar {
+  transition:
+    box-shadow var(--dur-base) var(--ease-out-quart),
+    border-color var(--dur-base) var(--ease-gentle),
+    transform var(--dur-base) var(--ease-out-quart);
+}
+.search-bar:focus-within {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18), 0 4px 16px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   12. TAG / FILTER MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.tag {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    border-color var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+.tag:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+.tag:active {
+  transform: scale(0.97);
+}
+.tag.active {
+  animation: countTick var(--dur-base) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   13. TAB MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.tab-btn {
+  transition:
+    color var(--dur-fast) var(--ease-gentle),
+    border-color var(--dur-fast) var(--ease-gentle);
+}
+
+/* Underline animates in when tab becomes active */
+.tab-btn.active {
+  border-bottom-color: var(--clr-primary);
+}
+
+/* Tab panel — fade in */
+.tab-panel.active {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   14. TABLE ROW MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.data-table tbody tr {
+  transition: background var(--dur-fast) var(--ease-gentle);
+}
+.data-table tbody tr:hover td {
+  background: rgba(245, 158, 11, 0.04);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   15. TOAST MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.toast {
+  animation: toastIn var(--dur-enter) var(--ease-out-expo) both;
+}
+.toast.exiting {
+  animation: toastOut var(--dur-exit) var(--ease-in-quart) forwards;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   16. AUTH PAGE MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.auth-form-side {
+  animation: enterUp var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: 60ms;
+}
+.auth-image-side {
+  animation: enterUp var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: 120ms;
+}
+
+/* Role toggle buttons */
+.auth-role-btn {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    box-shadow var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-instant) var(--ease-gentle);
+}
+.auth-role-btn:active {
+  transform: scale(var(--scale-press));
+}
+
+/* Social auth buttons */
+.auth-social-btn {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    border-color var(--dur-fast) var(--ease-gentle),
+    box-shadow var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-fast) var(--ease-out-quart);
+}
+.auth-social-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.auth-social-btn:active {
+  transform: scale(var(--scale-press));
+}
+
+/* Auth error banner — slide in */
+#auth-error:not([style*="display: none"]):not(.hidden) {
+  animation: enterUp var(--dur-base) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   17. SKELETON / LOADING STATES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.skeleton {
+  background:
+    linear-gradient(
+      90deg,
+      var(--clr-surface-1) 25%,
+      var(--clr-surface-2) 50%,
+      var(--clr-surface-1) 75%
+    );
+  background-size: 400px 100%;
+  animation: shimmerWave 1.4s ease-in-out infinite;
+  border-radius: var(--r-sm);
+  color: transparent;
+}
+
+.skeleton-text {
+  height: 14px;
+  border-radius: var(--r-sm);
+  margin-bottom: 8px;
+}
+.skeleton-text--sm  { width: 60%; }
+.skeleton-text--md  { width: 80%; }
+.skeleton-text--lg  { width: 100%; }
+
+.skeleton-circle {
+  border-radius: var(--r-full);
+}
+.skeleton-card {
+  border-radius: var(--r-lg);
+  height: 160px;
+}
+
+/* Loading spinner utility */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(245, 158, 11, 0.2);
+  border-top-color: var(--clr-primary);
+  border-radius: 50%;
+  animation: rotateSpin 0.65s linear infinite;
+}
+.spinner--sm { width: 14px; height: 14px; border-width: 2px; }
+.spinner--lg { width: 32px; height: 32px; border-width: 3px; }
+
+/* Empty state — gentle entrance */
+.empty-state {
+  animation: enterUp var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: 100ms;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   18. PAGINATION MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.page-btn {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    border-color var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+.page-btn:hover:not(:disabled) {
+  transform: scale(1.06);
+}
+.page-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.page-btn.active {
+  animation: countTick var(--dur-base) var(--ease-out-expo) both;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   19. PROFILE / ACCOUNT SETTINGS MOTION
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* Settings sections fade in on load */
+.settings-section {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+}
+.settings-section:nth-child(1) { animation-delay: 0ms; }
+.settings-section:nth-child(2) { animation-delay: 60ms; }
+.settings-section:nth-child(3) { animation-delay: 120ms; }
+.settings-section:nth-child(4) { animation-delay: 180ms; }
+
+/* Filter panel sections */
+.filter-panel__section {
+  transition:
+    border-color var(--dur-fast) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-gentle);
+}
+.filter-panel__section:focus-within {
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.08);
+}
+
+/* Badge — subtle pop on render */
+.badge {
+  transition:
+    background var(--dur-fast) var(--ease-gentle),
+    color var(--dur-fast) var(--ease-gentle),
+    transform var(--dur-fast) var(--ease-out-expo);
+}
+
+/* Alert banners — slide in from top */
+.alert {
+  animation: enterUp var(--dur-base) var(--ease-out-expo) both;
+}
+
+/* Profile alert */
+.profile-alert {
+  animation: enterUp var(--dur-enter) var(--ease-out-expo) both;
+  transition:
+    border-color var(--dur-fast) var(--ease-gentle),
+    box-shadow var(--dur-base) var(--ease-gentle);
+}
+.profile-alert:hover {
+  border-color: rgba(245, 158, 11, 0.2);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   20. NOTIFICATION DOT / BADGE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.notif-dot {
+  animation: pulseRing 2s ease-in-out infinite;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   21. UTILITY CLASSES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.motion-none   { animation: none !important; transition: none !important; }
+.motion-enter  { animation: enterUp var(--dur-enter) var(--ease-out-expo) both; }
+.motion-right  { animation: enterRight var(--dur-enter) var(--ease-out-expo) both; }
+.motion-scale  { animation: dialogSlideUp var(--dur-enter) var(--ease-out-expo) both; }
+
+.delay-0   { animation-delay: 0ms; }
+.delay-1   { animation-delay: 40ms; }
+.delay-2   { animation-delay: 80ms; }
+.delay-3   { animation-delay: 120ms; }
+.delay-4   { animation-delay: 160ms; }
+.delay-5   { animation-delay: 200ms; }
+.delay-6   { animation-delay: 240ms; }
